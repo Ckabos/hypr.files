@@ -1,0 +1,58 @@
+# General settings
+ignore-empty-password
+daemonize
+fade-in=0.25
+# Appearance settings
+indicator
+clock
+datestr=%d/%m/%Y
+font=Iosevka Nerd Font
+font-size=35
+
+# Background image (random wallpaper selection)
+image=$(find "/home/efrain/Imágenes/Wallpapers" -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" \) | shuf -n 1)
+
+# Indicator settings
+indicator-idle-visible
+indicator-radius=120
+indicator-thickness=8
+indicator-caps-lock
+show-keyboard-layout
+
+# Colors
+## Background
+inside-color=000000CC
+inside-clear-color=8EC07C66
+inside-caps-lock-color=FE801966
+inside-ver-color=619A9666
+inside-wrong-color=F9373CBC
+
+## Borders and rings
+ring-color=000000CC
+ring-clear-color=8EC07CCC
+ring-caps-lock-color=FE8019CC
+ring-ver-color=80AA9ECC
+ring-wrong-color=F9373CCC
+
+## Text and highlights
+text-color=E0CDA5
+text-clear-color=E0CDA5
+text-caps-lock-color=E0CDA5
+text-ver-color=E0CDA5
+text-wrong-color=E0CDA5
+bs-hl-color=DB4740CC
+caps-lock-bs-hl-color=DB4740CC
+caps-lock-key-hl-color=D3869BCC
+
+key-hl-color=B1B946CC
+
+## Layout colors
+layout-bg-color=50494500
+layout-text-color=E0CDA5
+line-color=00000000
+separator-color=00000000
+
+# Effects
+effect-vignette=0.5:0.5
+effect-blur=5x2
+
