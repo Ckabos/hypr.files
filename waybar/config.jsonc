@@ -30,43 +30,28 @@
         "custom/notifications",
         "tray",
         "clock",
-        "custom/weather",
         "custom/cycle_wall",
-        "custom/clipboard",
         "custom/power",
         "custom/custom"
     ],
     
     // Configuración del módulo "custom/launcher" (Lanzador personalizado)
     "custom/launcher": {
-        "format": "",                        // Formato del ícono
+        "format": "<span font='16'></span>",                        // Formato del ícono
         "on-click": "bash ~/.config/rofi/launcher/launcher.sh", // Acción al hacer clic (abre el lanzador)
-        "on-click-right": "bash ~/.config/rofi/powermenu/powermenu.sh" // Acción al hacer clic derecho (abre el menú de energía)
+        "on-click-right": "bash ~/.config/rofi/powermenu/powermenu.sh" // Acción al hacer clic derecho (abre el menú de energía)
     },
 
-    // Configuración del módulo "wlr/workspaces" (Espacios de trabajo)
-    "wlr/workspaces": {
+
+
+// Configuración del módulo "hyprland/workspaces" (Espacios de trabajo)
+  "hyprland/workspaces": {
         "active-only": false,    // Muestra solo los espacios de trabajo activos
-        "all-outputs": true,    // Muestra espacios de trabajo en todos los monitores
+        "all-outputs": true,     // Muestra espacios de trabajo en todos los monitores
         "disable-scroll": false, // Habilita el scroll para cambiar de espacio de trabajo
         "on-scroll-up": "hyprctl dispatch workspace -1", // Cambia al espacio de trabajo anterior
         "on-scroll-down": "hyprctl dispatch workspace +1", // Cambia al siguiente espacio de trabajo
-        "format": "{icon}",      // Formato del ícono
-        "on-click": "activate",  // Activa el espacio de trabajo al hacer clic
-        "format-icons": {       // Íconos personalizados
-            "urgent": "",       // Ícono para espacios de trabajo urgentes
-            "active": "",       // Ícono para espacios de trabajo activos
-            "default": "󰧞",     // Ícono por defecto
-            "sort-by-number": true // Ordena los espacios de trabajo por número
-        }
-    },
-
-    // Configuración del módulo "hyprland/workspaces" (Espacios de trabajo de Hyprland)
-    "hyprland/workspaces": {
-        "disable-scroll": false, // Habilita el scroll para cambiar de espacio de trabajo
-        "on-scroll-up": "hyprctl dispatch workspace -1", // Cambia al espacio de trabajo anterior
-        "on-scroll-down": "hyprctl dispatch workspace +1", // Cambia al siguiente espacio de trabajo
-        "format": "{icon}",      // Formato del ícono
+        "format":" {icon}",      // Formato del ícono
         "format-icons": {       // Íconos personalizados para cada espacio de trabajo
             "1": "一",          // Ícono para el espacio de trabajo 1
             "2": "二",          // Ícono para el espacio de trabajo 2
@@ -79,13 +64,11 @@
             "9": "九",          // Ícono para el espacio de trabajo 9
             "10": "〇"          // Ícono para el espacio de trabajo 10
         },
+        "on-click": "activate",    // Activa el espacio de trabajo al hacer clic
         "persistent-workspaces": { // Define un número fijo de espacios de trabajo
             "*": 10               // 10 espacios de trabajo en todos los monitores
         }
-    },
-
-
-   "cpu": {
+    },   "cpu": {
         "format": " {usage}%",
         "tooltip": true,
         "on-click": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'",
@@ -97,27 +80,27 @@
         "on-click": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'",
         "interval": 2
     },
-    "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        "critical-threshold": 40,
-        "format-critical": "{icon} {temperatureC}°C",
-        "format": "{icon} {temperatureC}°C",
-        "format-icons": [
-            "",
-            "",
-            ""
-        ],
-        "tooltip": true,
-        "on-click": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'",
-        "interval": 2
-    },
-    "disk": {
-        "format": " {percentage_used}% ({free})",
-        "tooltip": true,
-        "on-click": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'",
-        "interval": 2
-    },
+/*    "temperature": {*/
+        /*// "thermal-zone": 2,*/
+        /*// "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",*/
+        /*"critical-threshold": 40,*/
+        /*"format-critical": "{icon} {temperatureC}°C",*/
+        /*"format": "{icon} {temperatureC}°C",*/
+        /*"format-icons": [*/
+            /*"",*/
+            /*"",*/
+            /*""*/
+        /*],*/
+        /*"tooltip": true,*/
+        /*"on-click": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'",*/
+        /*"interval": 2*/
+    /*},*/
+    /*"disk": {*/
+        /*"format": " {percentage_used}% ({free})",*/
+        /*"tooltip": true,*/
+        /*"on-click": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'",*/
+        /*"interval": 2*/
+    /*},*/
     "custom/updates": {
         "format": "{}",
         "exec": "~/.config/waybar/scripts/updates",
@@ -130,7 +113,7 @@
     "custom/music": {
         "format": "{icon}{0}",
         "format-icons": {
-            // "Playing": " ", // Uncomment if not using the dynamic script
+            "Playing": "  ", // Uncomment if not using the dynamic script
             "Paused": " ",
             "Stopped": "&#x202d;ﭥ " // This stop symbol is RTL. So &#x202d; is left-to-right override.
         },
@@ -150,9 +133,9 @@
         "max-length": 35
     },
     "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format": "↕{bandwidthTotalBytes}",
-        "format-disconnected": "{icon} No Internet",
+"format": "<span font='18'></span> [{gwaddr}] <span font='18'></span> {essid}",
+
+        "format-disconnected": " {icon} No Internet",
         "format-linked": " {ifname} (No IP)",
         "format-alt": "↕{bandwidthUpBytes} | ↕{bandwidthDownBytes}",
         "tooltip-format": "{ifname}: {ipaddr}/{cidr}  {gwaddr}",
@@ -174,20 +157,20 @@
         // "scroll-step": 1, // %, can be a float
         "format": "{icon} {volume}%", // {format_source}
         "format-bluetooth": "{icon} {volume}%", // {format_source}
-        "format-bluetooth-muted": "", // {format_source}
-        "format-muted": "", // {format_source}
+        "format-bluetooth-muted": "<span font='18'></span>", // {format_source}
+        "format-muted": "<span font='18'></span>", // {format_source}
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
-            "headphone": "",
+            "headphone": "<span font='18'></span>",
             "headset": "",
             "phone": "",
             "portable": "",
             "car": " ",
             "default": [
-                "",
-                "",
-                ""
+                "",
+                "",
+                ""
             ]
         },
         "on-click": "pavucontrol"
@@ -196,16 +179,15 @@
         // "device": "acpi_video1",
         "format": "{icon} {percent}%",
         "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-        ],
+        "<span font='18'></span>",
+"<span font='18'></span>",
+"<span font='18'></span>",
+"<span font='18'></span>",
+"<span font='18'></span>",
+"<span font='18'></span>",
+"<span font='18'></span>",
+"<span font='18'></span>",
+"<span font='18'></span>"        ],
         "on-scroll-up": "light -A 1",
         "on-scroll-down": "light -U 1",
         "interval": 2
@@ -217,24 +199,20 @@
             "critical": 10
         },
         "format": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
+        "format-charging": "<span font='18'></span>{capacity}%",
+        "format-plugged": "<span font='18'></span> {capacity}%",
         "format-alt": "{icon} {time}",
         // "format-good": "", // An empty format will hide the module
         "format-full": " {capacity}%",
-        "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-        ],
-        "interval": 2
+       
+
+"format-icons": [
+    "",  /* Batería vacía */
+    "",  /* Batería 25% */
+    "",  /* Batería 50% */
+    "",  /* Batería 75% */
+    ""   /* Batería 100% */
+],        "interval": 2
     },
     "custom/notifications": {
         "tooltip": false,
@@ -256,7 +234,7 @@
         "icon-size": 15,
         "spacing": 15
     },
-    "clock": {
+    "clock":{
         "timezone": "America/Mexico_City",
         "format": " {:%r}",
      //"format": " {:%a %b %d %Y | %H:%M}",
@@ -276,19 +254,8 @@
             "deactivated": ""
         }
     },
-    "custom/weather": {
-        "tooltip": true,
-        "format": "{}",
-        "exec": "~/.config/waybar/scripts/tools/expand weather",
-        "return-type": "json"
-    },
-    "custom/ss": {
-        "format": "{}",
-        "exec": "~/.config/waybar/scripts/tools/expand ss-icon",
-        "return-type": "json",
-        "on-click": "~/.config/waybar/scripts/screenshot_full"
-    },
-    "custom/cycle_wall": {
+
+      "custom/cycle_wall": {
         "format": {},
         "exec": "~/.config/waybar/scripts/tools/expand wall",
         "return-type": "json",
@@ -296,20 +263,7 @@
         "on-click": "~/.config/waybar/scripts/tools/expand cycle",
         "on-click-right": "~/.config/waybar/scripts/tools/expand cycler"
     },
-    "custom/clipboard": {
-        "format": "{}",
-        "exec": "~/.config/waybar/scripts/tools/expand clipboard",
-        "return-type": "json",
-        // Window position is managed in Hyperland config's windowrulev2
-        "on-click": "pkill tofi || sleep 0.15 && cliphist list | tofi -c ~/.config/tofi/tofi.clip.conf | cliphist decode | wl-copy",
-        "on-click-middle": "rm -f ~/.cache/cliphist/db",
-        "on-click-right": "pkill tofi || sleep 0.15 && cliphist list | tofi -c ~/.config/tofi/tofi.clip.conf | cliphist delete",
-        // Here "-l top_right -x -15 -y 10" doesn't matter as '-n' mode is used
-        // "on-click": "pkill wofi || cliphist list | wofi --dmenu -p clippick -l top_right -x -15 -y 10 -n | cliphist decode | wl-copy",
-        // "on-click-middle": "rm -f ~/.cache/cliphist/db",
-        // "on-click-right": "pkill wofi || cliphist list | wofi --dmenu -p clippick -l top_right -x -15 -y 10 -n | cliphist delete",
-        "escape": true
-    },
+
     "custom/power": {
         "format": "{}",
         // "exec": "~/.scripts/tools/expand power",
