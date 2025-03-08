@@ -1,0 +1,9 @@
+{
+       // Power
+    "custom/power": {
+        "format": "{}",
+        "exec": "echo '{\"text\":\"⏻\",\"tooltip\":\"Power\"}'",
+        "return-type": "json",
+        "on-click": "~/.config/wlogout/launch.sh"
+    },
+}

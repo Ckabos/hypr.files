@@ -1,0 +1,8 @@
+{
+ // Launcher
+    "custom/launcher": {
+        "format": "<span font='16'></span>",
+        "on-click": "bash ~/.config/rofi/launcher/launcher.sh",
+        "on-click-right": "bash ~/.config/rofi/powermenu/powermenu.sh"
+    },
+}

@@ -1,0 +1,23 @@
+{
+        // Battery
+    "battery": {
+        "states": {
+            "good": 100,
+            "warning": 30,
+            "critical": 10
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "<span font='18'></span>{capacity}%",
+        "format-plugged": "<span font='18'></span> {capacity}%",
+        "format-alt": "{icon} {time}",
+        "format-full": "<span font='18'></span>  {capacity}%",
+        "format-icons": [
+            "<span font='18'></span>",
+            "<span font='18'></span>",
+            "<span font='18'></span>",
+            "<span font='18'></span>",
+            "<span font='18'></span>"
+        ],
+        "interval": 2
+    },
+}

@@ -1,0 +1,19 @@
+{ 
+    // Music
+    "custom/music": {
+        "format": "{icon}{0}",
+        "format-icons": {
+            "Playing": "  ",
+            "Paused": " ",
+            "Stopped": "&#x202d;ﭥ "
+        },
+        "escape": true,
+        "tooltip": true,
+        "exec": "~/.config/waybar/scripts/caway -b 10 -e",
+        "return-type": "json",
+        "on-click": "playerctl play-pause",
+        "on-middle-click": "playerctl previous",
+        "on-click-right": "playerctl next",
+        "max-length": 40
+    },
+}

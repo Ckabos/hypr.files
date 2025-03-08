@@ -1,0 +1,19 @@
+{
+        // Notifications
+    "custom/notifications": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "<span font='18'></span><span foreground='red'><sup></sup></span>",
+            "none": "<span font='18'></span>",
+            "dnd-notification": "<span font='18'></span><span foreground='red'><sup></sup></span>",
+            "dnd-none": "<span font='18'></span>"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "sleep 0.15 && swaync-client -t -sw",
+        "on-click-right": "sleep 0.15 && swaync-client -d -sw",
+        "escape": true
+    },
+}

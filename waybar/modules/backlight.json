@@ -1,0 +1,20 @@
+{
+        // Backlight
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": [
+            "<span font='18'></span>",
+            "<span font='18'></span>",
+            "<span font='18'></span>",
+            "<span font='18'></span>",
+            "<span font='18'></span>",
+            "<span font='18'></span>",
+            "<span font='18'></span>",
+            "<span font='18'></span>",
+            "<span font='18'></span>"
+        ],
+        "on-scroll-up": "light -A 1",
+        "on-scroll-down": "light -U 1",
+        "interval": 2
+    },
+}

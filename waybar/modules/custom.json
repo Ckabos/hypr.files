@@ -1,0 +1,9 @@
+{
+     // Custom
+    "custom/custom": {
+        "format": "{}",
+        "exec": "~/.config/waybar/scripts/tools/expand arrow-icon",
+        "on-click": "~/.config/waybar/scripts/tools/expand_toolbar",
+        "return-type": "json"
+    }
+}
