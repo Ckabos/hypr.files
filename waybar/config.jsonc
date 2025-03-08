@@ -13,14 +13,11 @@
     "modules-left": [
         "custom/launcher",
         "hyprland/workspaces",
-        "cpu",
-        "memory",
-        "temperature",
-        "disk",
-        "custom/updates"
+        "hyprland/window",
+        "custom/music"
     ],
     "modules-center": [
-        "custom/music"
+        "custom/updates"
     ],
     "modules-right": [
         "network",
@@ -34,17 +31,18 @@
         "custom/power",
         "custom/custom"
     ],
-    
-    // Configuración del módulo "custom/launcher" (Lanzador personalizado)
-    "custom/launcher": {
-        "format": "<span font='16'></span>",                        // Formato del ícono
-        "on-click": "bash ~/.config/rofi/launcher/launcher.sh", // Acción al hacer clic (abre el lanzador)
-        "on-click-right": "bash ~/.config/rofi/powermenu/powermenu.sh" // Acción al hacer clic derecho (abre el menú de energía)
+
+     "custom/launcher": {
+        // Define el formato del icono que aparecerá en Waybar
+        // En este caso, se usa un ícono de manzana () con un tamaño de fuente de 16
+        "format": "<span font='16'></span>",
+        // Acción al hacer clic izquierdo: ejecuta el script del launcher de Rofi
+        "on-click": "bash ~/.config/rofi/launcher/launcher.sh",
+        // Acción al hacer clic derecho: ejecuta el script del menú de apagado de Rofi
+        "on-click-right": "bash ~/.config/rofi/powermenu/powermenu.sh"
     },
 
-
-
-// Configuración del módulo "hyprland/workspaces" (Espacios de trabajo)
+    // Configuración del módulo "hyprland/workspaces" (Espacios de trabajo)
   "hyprland/workspaces": {
         "active-only": false,    // Muestra solo los espacios de trabajo activos
         "all-outputs": true,     // Muestra espacios de trabajo en todos los monitores
@@ -68,48 +66,14 @@
         "persistent-workspaces": { // Define un número fijo de espacios de trabajo
             "*": 10               // 10 espacios de trabajo en todos los monitores
         }
-    },   "cpu": {
-        "format": " {usage}%",
-        "tooltip": true,
-        "on-click": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'",
-        "interval": 2
     },
-    "memory": {
-        "format": " {}%",
-        "tooltip": true,
-        "on-click": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'",
-        "interval": 2
-    },
-/*    "temperature": {*/
-        /*// "thermal-zone": 2,*/
-        /*// "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",*/
-        /*"critical-threshold": 40,*/
-        /*"format-critical": "{icon} {temperatureC}°C",*/
-        /*"format": "{icon} {temperatureC}°C",*/
-        /*"format-icons": [*/
-            /*"",*/
-            /*"",*/
-            /*""*/
-        /*],*/
-        /*"tooltip": true,*/
-        /*"on-click": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'",*/
-        /*"interval": 2*/
-    /*},*/
-    /*"disk": {*/
-        /*"format": " {percentage_used}% ({free})",*/
-        /*"tooltip": true,*/
-        /*"on-click": "kitty --start-as=fullscreen --title all_is_kitty sh -c 'btop'",*/
-        /*"interval": 2*/
-    /*},*/
-    "custom/updates": {
+
+        "hyprland/window": {
         "format": "{}",
-        "exec": "~/.config/waybar/scripts/updates",
-        "on-click": "~/.config/waybar/scripts/updates update",
-        "interval": 600,
-        "tooltip": true,
-        // "tooltip-format": "{}",
-        // "exec-tooltip": "~/.scripts/updates tooltip"
+        "separate-outputs": true,
+        "max-length": 35
     },
+
     "custom/music": {
         "format": "{icon}{0}",
         "format-icons": {
@@ -127,11 +91,17 @@
         "on-click-right": "playerctl next",
         "max-length": 40
     },
-    "hyprland/window": {
+    
+    "custom/updates": {
         "format": "{}",
-        "separate-outputs": true,
-        "max-length": 35
+        "exec": "~/.config/waybar/scripts/updates",
+        "on-click": "~/.config/waybar/scripts/updates update",
+        "interval": 600,
+        "tooltip": true,
+        // "tooltip-format": "{}",
+        // "exec-tooltip": "~/.scripts/updates tooltip"
     },
+
     "network": {
 "format": "<span font='18'></span> [{gwaddr}] <span font='18'></span> {essid}",
 
@@ -153,12 +123,13 @@
         },
         "interval": 2
     },
-    "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{icon} {volume}%", // {format_source}
-        "format-bluetooth": "{icon} {volume}%", // {format_source}
-        "format-bluetooth-muted": "<span font='18'></span>", // {format_source}
-        "format-muted": "<span font='18'></span>", // {format_source}
+
+        "pulseaudio": {
+        "scroll-step": 1,
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}%",
+        "format-bluetooth-muted": "<span font='18'></span>",
+        "format-muted": "<span font='18'></span>",
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
@@ -168,30 +139,30 @@
             "portable": "",
             "car": " ",
             "default": [
-                "",
-                "",
-                ""
+                "<span font='18'></span>",
+                "<span font='18'></span>",
+                "<span font='18'></span>"
             ]
-        },
-        "on-click": "pavucontrol"
+        }
     },
     "backlight": {
-        // "device": "acpi_video1",
         "format": "{icon} {percent}%",
         "format-icons": [
-        "<span font='18'></span>",
-"<span font='18'></span>",
-"<span font='18'></span>",
-"<span font='18'></span>",
-"<span font='18'></span>",
-"<span font='18'></span>",
-"<span font='18'></span>",
-"<span font='18'></span>",
-"<span font='18'></span>"        ],
+            "<span font='18'></span>",
+            "<span font='18'></span>",
+            "<span font='18'></span>",
+            "<span font='18'></span>",
+            "<span font='18'></span>",
+            "<span font='18'></span>",
+            "<span font='18'></span>",
+            "<span font='18'></span>",
+            "<span font='18'></span>"
+        ],
         "on-scroll-up": "light -A 1",
         "on-scroll-down": "light -U 1",
         "interval": 2
     },
+
     "battery": {
         "states": {
             "good": 100,
@@ -203,25 +174,26 @@
         "format-plugged": "<span font='18'></span> {capacity}%",
         "format-alt": "{icon} {time}",
         // "format-good": "", // An empty format will hide the module
-        "format-full": " {capacity}%",
-       
+        "format-full": "<span font='18'></span>  {capacity}%",
 
-"format-icons": [
-    "",  /* Batería vacía */
-    "",  /* Batería 25% */
-    "",  /* Batería 50% */
-    "",  /* Batería 75% */
-    ""   /* Batería 100% */
-],        "interval": 2
+
+    "    format-icons": [
+     "  <span font='18'></span>",  /* Batería vacía */
+     "  <span font='18'></span>",  /* Batería 25% */
+     "  <span font='18'></span>",  /* Batería 50% */
+     "  <span font='18'></span>",  /* Batería 75% */
+     "  <span font='18'></span>"   /* Batería 100% */
+        ],        "interval": 2
     },
+
     "custom/notifications": {
         "tooltip": false,
         "format": "{icon}",
         "format-icons": {
-            "notification": "<span foreground='red'><sup></sup></span>",
-            "none": "",
-            "dnd-notification": "<span foreground='red'><sup></sup></span>",
-            "dnd-none": ""
+            "notification": "<span font='18'></span><span foreground='red'><sup></sup></span>",
+            "none": "<span font='18'></span>",
+            "dnd-notification": "<span font='18'></span><span foreground='red'><sup></sup></span>",
+            "dnd-none": "<span font='18'></span>"
         },
         "return-type": "json",
         "exec-if": "which swaync-client",
@@ -230,15 +202,18 @@
         "on-click-right": "sleep 0.15 && swaync-client -d -sw",
         "escape": true
     },
+
+
     "tray": {
-        "icon-size": 15,
-        "spacing": 15
+        "icon-size": 20,
+        "spacing": 5
     },
+
     "clock":{
         "timezone": "America/Mexico_City",
-        "format": " {:%r}",
+        "format": "<span font='18'></span>  <span font='12'>{:%r}</span>",
      //"format": " {:%a %b %d %Y | %H:%M}",
-        "format-alt": " {:%A, %d de %B - %r}",
+        "format-alt": "<span font='18'></span> <span font='12'> {:%A, %d de %B - %r}</span>",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "calendar-weeks-pos": "right",
         "today-format": "<span color='#f38ba8'><b><u>{}</u></b></span>",
@@ -247,15 +222,8 @@
         "format-calendar-weekdays": "<span color='#f9e2af'><b>{}</b></span>",
         "interval": 60
     },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
-    },
 
-      "custom/cycle_wall": {
+    "custom/cycle_wall": {
         "format": {},
         "exec": "~/.config/waybar/scripts/tools/expand wall",
         "return-type": "json",
@@ -271,6 +239,7 @@
         "return-type": "json",
         "on-click": "~/.config/wlogout/launch.sh"
     },
+
     "custom/custom": {
         "format": "{}",
         "exec": "~/.config/waybar/scripts/tools/expand arrow-icon",
