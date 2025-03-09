@@ -1,0 +1,11 @@
+{
+    "group/settings": {
+	    "orientation": "vertical",
+	    "modules": [
+	        "custom/notifications",
+            "pulseaudio",
+		    "backlight",
+		    "battery",
+	    ],
+    }
+}

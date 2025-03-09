@@ -1,7 +1,7 @@
 {
         // Backlight
     "backlight": {
-        "format": "{icon} {percent}%",
+        "format": "{icon}  {percent}%",
         "format-icons": [
             "<span font='18'></span>",
             "<span font='18'></span>",

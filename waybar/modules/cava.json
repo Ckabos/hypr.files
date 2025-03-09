@@ -1,0 +1,6 @@
+{
+    "custom/cava": {
+        "exec": "~/.config/waybar/scripts/cava",
+        "format": "{}"
+    },
+}

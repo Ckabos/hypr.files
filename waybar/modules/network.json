@@ -1,7 +1,7 @@
 {
-        // Network
     "network": {
-        "format": "<span font='18'></span> [{gwaddr}] <span font='18'></span> {essid}",
+        "family": "ipv4",
+        "format": "<span font='18'></span> <span font='12'>[{ipaddr}]</span>",
         "format-disconnected": " {icon} No Internet",
         "format-linked": " {ifname} (No IP)",
         "format-alt": "↕{bandwidthUpBytes} | ↕{bandwidthDownBytes}",
@@ -18,7 +18,7 @@
                 "直"
             ]
         },
-        "interval": 2
-    },
-
+        "interval": 2,
+    }
 }
+

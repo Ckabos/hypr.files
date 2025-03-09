@@ -1,7 +1,7 @@
 {
     // Tray
     "tray": {
-        "icon-size": 20,
+        "icon-size": 29,
         "spacing": 5
     },
 }

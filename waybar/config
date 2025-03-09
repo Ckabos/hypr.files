@@ -1,4 +1,44 @@
 [{
+    "layer": "top",
+    "spacing": 3,
+    "position": "left", 
+    //"height": 45,
+    //"width": 10,
+    
+    // Load Modules
+    "include": [
+        "~/.config/waybar/modules/launcher.json",
+        "~/.config/waybar/modules/workspaces.json",
+        "~/.config/waybar/modules/music.json",
+        "~/.config/waybar/modules/network.json",
+        "~/.config/waybar/modules/backlight.json",
+        "~/.config/waybar/modules/cycle_wall.json",
+        "~/.config/waybar/modules/power.json",
+        "~/.config/waybar/modules/custom.json",
+        "~/.config/waybar/modules/tray.json",
+        "~/.config/waybar/modules/battery.json",
+        "~/.config/waybar/modules/pulseaudio.json",
+        "~/.config/waybar/modules/notifications.json",
+        "~/.config/waybar/modules/updates.json",
+        "~/.config/waybar/modules/settings.json",
+        
+    ],
+
+     "modules-left": [
+        "custom/launcher",
+        "hyprland/workspaces",
+        
+    ],
+
+    "modules-center": [
+    ],
+
+    "modules-right": [
+        "group/settings",
+            "tray",
+
+    ],
+    },{
     "layer": "top", // Waybar at top layer
     "position": "top",
     //"gtk-layer-shell": "false",
@@ -16,68 +56,33 @@
         "~/.config/waybar/modules/workspaces.json",
         "~/.config/waybar/modules/music.json",
         "~/.config/waybar/modules/network.json",
-        "~/.config/waybar/modules/pulseaudio.json",
         "~/.config/waybar/modules/backlight.json",
         "~/.config/waybar/modules/cycle_wall.json",
         "~/.config/waybar/modules/power.json",
         "~/.config/waybar/modules/custom.json",
-        "~/.config/waybar/modules/notifications.json",
-    ],
-
-    "modules-left": [
-        "custom/launcher",
-        "hyprland/workspaces",
-        "custom/music"
-    ],
-
-    "modules-center": [
-        "custom/updates"
-    ],
-
-    "modules-right": [
-        "network",
-        "pulseaudio",
-        "backlight",
-        "custom/notifications",
-        "custom/cycle_wall",
-        "custom/power",
-        "custom/custom"
-    ]
-},{
-   
-    "layer": "top",
-    "position": "bottom", // Waybar position (top|bottom|left|right)
-    //"gtk-layer-shell": "false",
-    "height": 45, // Waybar height (to be removed for auto height)
-    // "width": 2560, // Waybar width
-    "spacing": 0, // Gaps between modules (0px) Adjusted in the css
-    "margin-top": -10,
-    //"margin-bottom":-10,
-    "margin-left": 10,
-    "margin-right": 10,
-    "margin-bottom": 5,
-    
-
-     // Load Modules
-    "include": [
+        "~/.config/waybar/modules/clock.json",
         "~/.config/waybar/modules/window.json",
+        "~/.config/waybar/modules/music.json",
         "~/.config/waybar/modules/updates.json",
-        "~/.config/waybar/modules/battery.json",
-        "~/.config/waybar/modules/notifications.json",
-        "~/.config/waybar/modules/tray.json",
-        "~/.config/waybar/modules/clock.json"
+        "~/.config/waybar/modules/cava.json",
+        "~/.config/waybar/modules/ip.json",
     ],
 
-    // Choose the order of the modules
     "modules-left": [
-        "hyprland/window"
+        "custom/ip",
+        "custom/updates",
+        "hyprland/window",
     ],
+
     "modules-center": [
-        "custom/updates"
+        "custom/music",
+        "custom/cava",
     ],
+
     "modules-right": [
-        "tray",
-        "battery",
+        "custom/cycle_wall",
+        "custom/custom",
+        "custom/power",
         "clock",
     ],
 }]

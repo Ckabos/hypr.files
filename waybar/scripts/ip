@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Comprobar si tun0 está activo
+if ip link show tun0 up &> /dev/null; then
+    # Si tun0 está activo, obtener la IP de tun0
+    IP=$(ip -4 addr show dev tun0 | grep inet | awk '{print $2}' | cut -d'/' -f1)
+else
+    # Si tun0 no está activo, obtener la IP de wlan0
+    IP=$(ip -4 addr show dev wlan0 | grep inet | awk '{print $2}' | cut -d'/' -f1)
+fi
+
+# Mostrar la IP
+echo "$IP"
+

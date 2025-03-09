@@ -9,6 +9,6 @@
         "format-calendar": "<span color='#f2cdcd'><b>{}</b></span>",
         "format-calendar-weeks": "<span color='#94e2d5'><b>W{:%U}</b></span>",
         "format-calendar-weekdays": "<span color='#f9e2af'><b>{}</b></span>",
-        "interval": 60
+        "interval": 1
     },
 }

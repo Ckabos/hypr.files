@@ -1,0 +1,9 @@
+{
+    "custom/ip": {
+        "format": "<span font='18'></span> {}",
+        "exec": "~/.config/waybar/scripts/ip",
+        "format-disconnected": " No Internet",
+        "tooltip": true,
+        "interval": 5
+    }
+}
