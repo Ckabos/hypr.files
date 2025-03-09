@@ -6,52 +6,43 @@
 # │                                      │
 # └──────────────────────────────────────┘
 
-set notification-error-bg       "#ffb4ab"
-set notification-error-fg       "#690005"
-set notification-warning-bg     "#ffb86c"
-set notification-warning-fg     "#44475a"
-set notification-bg             "#231919"
-set notification-fg             "#d8c2c0"
+set notification-error-bg       "#8b0000"
+set notification-error-fg       "#ffdddd"
+set notification-warning-bg     "#ff8c00"
+set notification-warning-fg     "#1e1e1e"
+set notification-bg             "#121212"
+set notification-fg             "#e0e0e0"
 
-set completion-bg               "#231919"
-set completion-fg               "#d8c2c0"
-set completion-group-bg         "#ffb3ae"
-set completion-group-fg         "#571d1c"
-set completion-highlight-bg     "#e7bdb9"
-set completion-highlight-fg     "#442928"
+set completion-bg               "#121212"
+set completion-fg               "#e0e0e0"
+set completion-group-bg         "#8b0000"
+set completion-group-fg         "#ffdddd"
+set completion-highlight-bg     "#660000"
+set completion-highlight-fg     "#ffaaaa"
 
-set index-bg                    "#1a1111"
-set index-fg                    "#d8c2c0"
-set index-active-bg             "#ffb3ae"
-set index-active-fg             "#571d1c"
+set index-bg                    "#0d0d0d"
+set index-fg                    "#e0e0e0"
+set index-active-bg             "#8b0000"
+set index-active-fg             "#ffdddd"
 
-set inputbar-bg                 "#231919"
-set inputbar-fg                 "#d8c2c0"
-set statusbar-bg                "#231919"
-set statusbar-fg                "#d8c2c0"
+set inputbar-bg                 "#121212"
+set inputbar-fg                 "#e0e0e0"
+set statusbar-bg                "#121212"
+set statusbar-fg                "#e0e0e0"
 
-set highlight-fg                rgba(241,222,221,1.0)
-set highlight-active-color      rgba(255,194,140,0.5)
-set highlight-color             rgba(226,180,171,0.5)
+set highlight-fg                rgba(200,200,200,1.0)
+set highlight-active-color      rgba(255,120,80,0.4)
+set highlight-color             rgba(255,80,80,0.4)
 
-set default-bg                  "#1a1111"
-set default-fg                  "#d8c2c0"
+set default-bg                  "#000000"
+set default-fg                  "#e0e0e0"
 
 set render-loading              true
-set render-loading-fg           "#1a1111"
-set render-loading-bg           "#d8c2c0"
+set render-loading-fg           "#0d0d0d"
+set render-loading-bg           "#e0e0e0"
 
 # Recolor mode settings
 set recolor                     true
-set recolor-lightcolor          "#1a1111"
-set recolor-darkcolor           "#d8c2c0"
+set recolor-lightcolor          "#0d0d0d"
+set recolor-darkcolor           "#e0e0e0"
 
-# Custom settings
-set window-title-home-tilde true
-set statusbar-basename true
-set selection-clipboard clipboard
-set adjust-open "width"
-set guioptions ""
-set first-page-column 1:2
-map j feedkeys "<C-Down>"
-map k feedkeys "<C-Up>"
