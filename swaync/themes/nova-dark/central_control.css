@@ -1,0 +1,265 @@
+/* Definición de colores personalizados */
+@define-color text            @foreground; /* Color del texto, basado en el color de primer plano */
+@define-color background-alt  alpha(@color1, .4); /* Color de fondo alternativo con 40% de opacidad */
+@define-color selected        @color6; /* Color para elementos seleccionados */
+@define-color hover           alpha(@selected, .4); /* Color para efectos hover, con transparencia */
+@define-color urgent          @color2; /* Color para notificaciones urgentes */
+
+/* Estilos globales aplicados a todos los elementos */
+* {
+  color:            @text; /* Color del texto */
+  all: unset; /* Elimina todos los estilos predeterminados */
+  font-size: 14px; /* Tamaño de fuente */
+  font-family: "JetBrains Mono Nerd Font 10"; /* Familia de fuentes */
+  transition: 200ms; /* Transición suave de 200ms para animaciones */
+}
+
+/* Estilo para evitar fondos molestos en ventanas en blanco */
+.blank-window {  
+  background: transparent; /* Fondo transparente */
+}
+  
+/* ------------------------------------------------------------------------
+   CENTRO DE CONTROL
+------------------------------------------------------------------------ */
+
+/* Contenedor principal del centro de control */
+.control-center {
+  background: alpha(@background, .55); /* Fondo con transparencia */
+  border-radius: 24px; /* Bordes redondeados */
+  border: 1px solid @selected; /* Borde sólido con color seleccionado */
+  box-shadow: 0 0 10px 0 rgba(0,0,0,.6); /* Sombra para dar profundidad */
+  margin: 18px; /* Margen exterior */
+  padding: 12px; /* Relleno interno */
+}
+
+/* Notificaciones */
+.control-center .notification-row .notification-background,
+.control-center .notification-row .notification-background .notification.critical {
+  background-color: @background-alt; /* Fondo alternativo */
+  border-radius: 16px; /* Bordes redondeados */
+  margin: 4px 0px; /* Margen vertical */
+  padding: 4px; /* Relleno interno */
+}
+
+/* Notificaciones críticas */
+.control-center .notification-row .notification-background .notification.critical {
+  color: @urgent; /* Color de texto para notificaciones urgentes */
+}
+
+/* Contenido de las notificaciones */
+.control-center .notification-row .notification-background .notification .notification-content {
+  margin: 6px; /* Margen */
+  padding: 8px 6px 2px 2px; /* Relleno interno */
+}
+
+/* Acciones de notificaciones */
+.control-center .notification-row .notification-background .notification > *:last-child > * .notification-action {
+  background: alpha(@selected, .6); /* Fondo con transparencia */
+  color: @text; /* Color del texto */
+  border-radius: 12px; /* Bordes redondeados */
+  margin: 6px; /* Margen */
+}
+
+/* Efecto hover en acciones de notificaciones */
+.control-center .notification-row .notification-background .notification > *:last-child > * .notification-action:hover {
+  background: @selected; /* Cambia el fondo al pasar el cursor */
+}
+
+/* Efecto active en acciones de notificaciones */
+.control-center .notification-row .notification-background .notification > *:last-child > * .notification-action:active {
+  background-color: @selected; /* Cambia el fondo al hacer clic */
+}
+
+/* Botones de cierre */
+.control-center .notification-row .notification-background .close-button {
+  background: transparent; /* Fondo transparente */
+  border-radius: 6px; /* Bordes redondeados */
+  color: @text; /* Color del texto */
+  margin: 0px; /* Sin margen */
+  padding: 4px; /* Relleno interno */
+}
+
+/* Efecto hover en botones de cierre */
+.control-center .notification-row .notification-background .close-button:hover {
+  background-color: @selected; /* Cambia el fondo al pasar el cursor */
+}
+
+/* Efecto active en botones de cierre */
+.control-center .notification-row .notification-background .close-button:active {
+  background-color: @selected; /* Cambia el fondo al hacer clic */
+}
+
+/* Estilos para barras de progreso */
+progressbar,
+progress,
+trough {
+  border-radius: 12px; /* Bordes redondeados */
+}
+
+/* Fondo de la barra de progreso */
+progressbar {
+  background-color: rgba(255,255,255,.1); /* Fondo semitransparente */
+}
+
+/* ------------------------------------------------------------------------
+   GRUPOS DE NOTIFICACIONES
+------------------------------------------------------------------------ */
+
+/* Contenedor de grupos de notificaciones */
+.notification-group {
+  margin: 2px 8px 2px 8px; /* Márgenes */
+}
+
+/* Encabezados de grupos de notificaciones */
+.notification-group-headers {
+  font-weight: bold; /* Texto en negrita */
+  font-size: 1.25rem; /* Tamaño de fuente */
+  color: @text; /* Color del texto */
+  letter-spacing: 2px; /* Espaciado entre letras */
+}
+
+/* Icono de grupos de notificaciones */
+.notification-group-icon {
+  color: @text; /* Color del texto */
+}
+
+/* Botones de colapsar y cerrar todos */
+.notification-group-collapse-button,
+.notification-group-close-all-button {
+  background: transparent; /* Fondo transparente */
+  color: @text; /* Color del texto */
+  margin: 4px; /* Margen */
+  border-radius: 6px; /* Bordes redondeados */
+  padding: 4px; /* Relleno interno */
+}
+
+/* Efecto hover en botones de colapsar y cerrar todos */
+.notification-group-collapse-button:hover,
+.notification-group-close-all-button:hover {
+  background: @hover; /* Cambia el fondo al pasar el cursor */
+}  
+
+/* ------------------------------------------------------------------------
+   WIDGETS
+------------------------------------------------------------------------ */
+
+/* Título del widget */
+.widget-title {
+  font-size: 1.2em; /* Tamaño de fuente */
+  margin: 6px; /* Margen */
+}
+
+/* Botones en el título del widget */
+.widget-title button {
+  background: @background-alt; /* Fondo alternativo */
+  border-radius: 6px; /* Bordes redondeados */
+  padding: 4px 16px; /* Relleno interno */
+}
+
+/* Efecto hover en botones del título */
+.widget-title button:hover {
+  background-color: @hover; /* Cambia el fondo al pasar el cursor */
+}
+
+/* Efecto active en botones del título */
+.widget-title button:active {
+  background-color: @selected; /* Cambia el fondo al hacer clic */
+}
+
+/* Widget de "No molestar" */
+.widget-dnd {
+  margin: 6px; /* Margen */
+  font-size: 1.2rem; /* Tamaño de fuente */
+}
+
+/* Interruptor del modo "No molestar" */
+.widget-dnd > switch {
+  background: @background-alt; /* Fondo alternativo */
+  font-size: initial; /* Tamaño de fuente predeterminado */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: none; /* Sin sombra */
+  padding: 5px; /* Relleno interno */
+}
+
+/* Efecto hover en el interruptor */
+.widget-dnd > switch:hover {
+  background: @hover; /* Cambia el fondo al pasar el cursor */
+}
+
+/* Interruptor activado */
+.widget-dnd > switch:checked {
+  background: @selected; /* Cambia el fondo cuando está activado */
+}
+
+/* Efecto hover en el interruptor activado */
+.widget-dnd > switch:checked:hover {
+  background: @hover; /* Cambia el fondo al pasar el cursor */
+}
+
+/* Control deslizante del interruptor */
+.widget-dnd > switch slider {
+  background: @text; /* Color del control deslizante */
+  border-radius: 6px; /* Bordes redondeados */
+}
+
+/* ------------------------------------------------------------------------
+   REPRODUCTOR DE MÚSICA
+------------------------------------------------------------------------ */
+
+/* Contenedor del reproductor de música */
+.widget-mpris {
+  background: @background-alt; /* Fondo alternativo */
+  border-radius: 16px; /* Bordes redondeados */
+  color: @text; /* Color del texto */
+  margin: 20px 6px; /* Márgenes */
+}
+
+/* Reproductor de música */
+.widget-mpris-player {
+  background-color: @background-sec; /* Fondo secundario */
+  border-radius: 22px; /* Bordes redondeados */
+  padding: 6px 14px; /* Relleno interno */
+  margin: 6px; /* Margen */
+}
+
+/* Botones del reproductor de música */
+.widget-mpris > box > button {
+  color: @text; /* Color del texto */
+  border-radius: 20px; /* Bordes redondeados */
+}
+
+/* Efecto hover en botones del reproductor */
+.widget-mpris button:hover {
+  color: @text; /* Cambia el color del texto al pasar el cursor */
+}
+
+/* Arte del álbum */
+.widget-mpris-album-art {
+  border-radius: 16px; /* Bordes redondeados */
+}
+
+/* Título de la canción */
+.widget-mpris-title {
+  font-weight: 700; /* Texto en negrita */
+  font-size: 1rem; /* Tamaño de fuente */
+}
+
+/* Subtítulo de la canción */
+.widget-mpris-subtitle {
+  font-weight: 500; /* Texto seminegrita */
+  font-size: 0.8rem; /* Tamaño de fuente */
+}
+
+/* ------------------------------------------------------------------------
+   VOLUMEN
+------------------------------------------------------------------------ */
+
+/* Widget de volumen */
+.widget-volume {
+  background: @background-sec; /* Fondo secundario */
+  color: @background; /* Color del texto */
+  padding: 4px; /* Relleno interno */
+  margin: 6px; /* Margen */
+  border-radius: 6px; /* Bordes redondeados */
+}
