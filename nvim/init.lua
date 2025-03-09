@@ -18,10 +18,13 @@ packer.startup(function(use)
   use 'lilydjwg/colorizer'              -- Resaltado de colores hex
 
   -- 🔹 Navegación y Gestión de Archivos
-  use 'scrooloose/nerdtree'             -- Explorador de archivos
-  use 'majutsushi/tagbar'               -- Vista de estructura de código
+use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
 
   -- 🔹 Funcionalidad Extra
+
   use 'scrooloose/nerdcommenter'        -- Comentar líneas fácilmente
   use 'jiangmiao/auto-pairs'            -- Completar paréntesis automáticamente
   use 'nvim-lua/plenary.nvim'           -- Requerido para muchos plugins
@@ -31,6 +34,7 @@ packer.startup(function(use)
   use 'Shougo/deoplete.nvim'                    -- Otra opción de autocompletado
   use 'SirVer/ultisnips'                        -- Snippets
   use 'honza/vim-snippets'                      -- Colección de snippets
+  use 'neoclide/coc-css'
 
   -- 🔹 Depuración
   use 'mfussenegger/nvim-dap'        -- Depuración en Neovim
@@ -74,11 +78,6 @@ vim.api.nvim_set_keymap('n', '<leader>n', ':NERDTreeFocus<CR>', { noremap = true
 vim.api.nvim_set_keymap('n', '<C-n>', ':NERDTreeToggle<CR>', { noremap = true, silent = true })
 
 -- ===============================
---    Configuración de Tagbar
--- ===============================
-vim.api.nvim_set_keymap('n', '<F8>', ':TagbarToggle<CR>', { noremap = true, silent = true })
-
--- ===============================
 --    Configuración de Airline
 -- ===============================
 vim.g['airline#extensions#tabline#enabled'] = 1
@@ -119,4 +118,12 @@ vim.cmd([[
    autocmd BufWritePre *.py :CocCommand python.sortImports
 ]])
 
+-- Configuración de codificación
+vim.o.encoding = 'utf-8'
+vim.o.fileencoding = 'utf-8'
+
+-- Desactivar swapfile
+vim.o.swapfile = false
+vim.o.backup = false
+vim.o.writebackup = false
 
