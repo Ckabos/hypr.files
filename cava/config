@@ -1,50 +1,47 @@
-## Configuration file for CAVA. Default values are commented out. Use either ';' or '#' for commenting.
-
+## Archivo de configuración para CAVA. Los valores por defecto están comentados.
+## Se puede usar ';' o '#' para comentar.
 
 [general]
-# Smoothing mode. Can be 'normal', 'scientific' or 'waves'.
+# Modo de suavizado. Puede ser 'normal', 'scientific' o 'waves'.
 mode = normal
 
-# Accepts only non-negative values.
+# Tasa de cuadros por segundo. Solo acepta valores no negativos.
 framerate = 60
 
-# 'autosens' will attempt to decrease sensitivity if the bars peak. 1 = on, 0 = off
-# 'overshoot' allows bars to overshoot (in % of terminal height) without initiating autosens.
+# 'autosens' intentará disminuir la sensibilidad si las barras alcanzan el pico. 1 = activado, 0 = desactivado.
+# 'overshoot' permite que las barras sobresalgan (en % de la altura del terminal) sin iniciar autosens.
 ; autosens = 1
 ; overshoot = 20
 
-# Manual sensitivity in %. Autosens must be turned off for this to take effect.
-# 200 means double height. Accepts only non-negative values.
+# Sensibilidad manual en %. Autosens debe estar desactivado para que esto tenga efecto.
+# 200 significa el doble de altura. Solo acepta valores no negativos.
 ; sensitivity = 100
 
-# The number of bars (0-200). 0 sets it to auto (fill up console).
-# Bars' width and space between bars in number of characters.
+# Número de barras (0-200). 0 lo ajusta automáticamente (llenar la consola).
+# Ancho de las barras y espacio entre ellas en número de caracteres.
 bars = 0
 bar_width = 4
 bar_spacing = 1
 
-# Lower and higher cutoff frequencies for lowest and highest bars
-# the bandwidth of the visualizer.
-# Note: there is a minimum total bandwidth of 43Mhz x number of bars.
-# Cava will automatically increase the higher cutoff if a too low band is specified.
+# Frecuencias de corte inferior y superior para las barras más bajas y más altas.
+# Define el ancho de banda del visualizador.
+# Nota: hay un ancho de banda mínimo total de 43Mhz multiplicado por el número de barras.
+# Cava aumentará automáticamente el corte superior si se especifica un ancho de banda demasiado bajo.
 ; lower_cutoff_freq = 50
 ; higher_cutoff_freq = 10000
 
-
-
 [input]
-
-# Audio capturing method. Possible methods are: 'pulse', 'alsa' or 'fifo'.
-# Defaults to 'pulse', 'alsa' or 'fifo', in that order, dependent on what support cava was built with.
+# Método de captura de audio. Los métodos posibles son: 'pulse', 'alsa' o 'fifo'.
+# Por defecto es 'pulse', 'alsa' o 'fifo', en ese orden, dependiendo de con qué soporte se compiló cava.
 #
-# All input methods uses the same config variable 'source'
-# to define where it should get the audio.
+# Todos los métodos de entrada usan la misma variable de configuración 'source'
+# para definir de dónde debe obtener el audio.
 #
-# For pulseaudio 'source' will be the source. Default: 'auto', which uses the monitor source of the default sink
-# (all pulseaudio sinks(outputs) have 'monitor' sources(inputs) associated with them).
+# Para pulseaudio, 'source' será la fuente. Por defecto: 'auto', que usa la fuente de monitor del sumidero predeterminado
+# (todos los sumideros de pulseaudio (salidas) tienen fuentes de monitor (entradas) asociadas).
 #
-# For alsa 'source' will be the capture device.
-# For fifo 'source' will be the path to fifo-file.
+# Para alsa, 'source' será el dispositivo de captura.
+# Para fifo, 'source' será la ruta al archivo fifo.
 method = pulse
 source = auto
 
@@ -54,90 +51,77 @@ source = auto
 ; method = fifo
 ; source = /tmp/mpd.fifo
 
-
-
 [output]
-
-# Ouput method. Can be 'ncurses', 'noncurses' or 'raw'.
-# 'noncurses' is for systems that does not suport ncurses.
-# 'raw' is a 16 bit data stream of the bar heights that can be used to send to other applications.
-# 'raw' defaults to 200 bars, which can be adjusted in the 'bars' option above.
+# Método de salida. Puede ser 'ncurses', 'noncurses' o 'raw'.
+# 'noncurses' es para sistemas que no soportan ncurses.
+# 'raw' es un flujo de datos de 16 bits con las alturas de las barras que se puede enviar a otras aplicaciones.
+# 'raw' usa por defecto 200 barras, que se pueden ajustar en la opción 'bars' anterior.
 method = ncurses
 
-# Visual styles. Can be 'stereo' or 'mono'.
-# 'stereo' mirrors both channels with low frequencies in center.
-# 'mono' averages both channels and outputs left to right lowest to highest frequencies.
+# Estilos visuales. Puede ser 'stereo' o 'mono'.
+# 'stereo' refleja ambos canales con bajas frecuencias en el centro.
+# 'mono' promedia ambos canales y muestra de izquierda a derecha, de las frecuencias más bajas a las más altas.
 style = mono
 
-# Raw output target. A fifo will be created if target does not exist.
+# Objetivo de salida raw. Se creará un fifo si el objetivo no existe.
 ; raw_target = /dev/stdout
 
-# Raw data format. Can be 'binary' or 'ascii'.
+# Formato de datos raw. Puede ser 'binary' o 'ascii'.
 ; data_format = binary
 
-# Binary bit format, can be '8bit' (0-255) or '16bit' (0-65530).
+# Formato de bits binario, puede ser '8bit' (0-255) o '16bit' (0-65530).
 ; bit_format = 16bit
 
-# Ascii max value. In 'ascii' mode range will run from 0 to value specified here
+# Valor máximo en modo ascii. En modo 'ascii', el rango irá de 0 al valor especificado aquí.
 ; ascii_max_range = 1000
 
-# Ascii delimiters. In ascii format each bar and frame is separated by a delimiters.
-# Use decimal value in ascii table (i.e. 59 = ';' and 10 = '\n' (line feed)).
+# Delimitadores en modo ascii. En formato ascii, cada barra y cuadro se separa por delimitadores.
+# Usa valores decimales en la tabla ascii (por ejemplo, 59 = ';' y 10 = '\n' (salto de línea)).
 ; bar_delimiter = 59
 ; frame_delimiter = 10
 
+[color]
+# Colores. Pueden ser uno de los siete predefinidos: black, blue, cyan, green, magenta, red, white, yellow.
+# O definidos por código hexadecimal '#xxxxxx' (el código hex debe estar entre ''). Los colores definidos por el usuario requieren
+# un terminal que pueda cambiar definiciones de color, como Gnome-terminal o rxvt.
+; background = black
+; foreground = cyan
 
-
-# [color]
-
-# # Colors can be one of seven predefined: black, blue, cyan, green, magenta, red, white, yellow.
-# # Or defined by hex code '#xxxxxx' (hex code must be within ''). User defined colors requires a
-# # terminal that can change color definitions such as Gnome-terminal or rxvt.
-# ; background = black
-# ; foreground = cyan
-
-# # Gradient mode, only hex defined colors are supported, background must also be defined in hex
-# # or remain commented out. 1 = on, 0 = off. Warning: for certain terminal emulators cava will
-# # not able to restore color definitions on exit, simply restart your terminal to restore colors.
-# gradient = 1
-# gradient_color_1 = '#0099ff'
-# gradient_color_2 = '#ff3399'
-
-
+# Modo de gradiente, solo se admiten colores definidos en hexadecimal, el fondo también debe estar definido en hexadecimal
+# o permanecer comentado. 1 = activado, 0 = desactivado. Advertencia: para ciertos emuladores de terminal, cava no podrá
+# restaurar las definiciones de color al salir, simplemente reinicia tu terminal para restaurar los colores.
+gradient = 1
+gradient_color_1 = '#0099ff'
+gradient_color_2 = '#ff3399'
 
 [smoothing]
-
-# Multiplier for the integral smoothing calculations. Takes values from 0-0.99.
-# Higher values means smoother, but less precise. Set to 0 to disable.
+# Multiplicador para los cálculos de suavizado integral. Acepta valores de 0-0.99.
+# Valores más altos significan más suavizado, pero menos precisión. Establecer en 0 para desactivar.
 ; integral = 0.7
 
-# Disables or enables the so-called "Monstercat smoothing". Set to 0 to disable.
+# Desactiva o activa el llamado "suavizado Monstercat". Establecer en 0 para desactivar.
 ; monstercat = 1
 ; waves = 1
 
-# Set gravity multiplier for "drop off". Higher values means bars will drop faster.
-# Accepts only non-negative values. 0.5 means half gravity, 2 means double. Set to 0 to disable "drop off".
+# Establece el multiplicador de gravedad para la "caída". Valores más altos significan que las barras caerán más rápido.
+# Solo acepta valores no negativos. 0.5 significa la mitad de gravedad, 2 significa el doble. Establecer en 0 para desactivar la "caída".
 ; gravity = 1
 
-
-# In bar height, bars that would have been lower that this will not be drawn.
+# En altura de barra, las barras que serían más bajas que esto no se dibujarán.
 ; ignore = 0
 
-
 [eq]
-
-# This one is tricky. You can have as much keys as you want.
-# Remember to uncomment more then one key! More keys = more precision.
-# Look at readme.md on github for further explanations and examples.
-; 1 = 1 # bass
+# Esta opción es complicada. Puedes tener tantas claves como quieras.
+# ¡Recuerda descomentar más de una clave! Más claves = más precisión.
+# Consulta readme.md en GitHub para más explicaciones y ejemplos.
+; 1 = 1 # graves
 ; 2 = 1
-; 3 = 1 # midtone
+; 3 = 1 # medios
 ; 4 = 1
-; 5 = 1 # treble
-
+; 5 = 1 # agudos
 
 [color]
-
+# Configuración de colores con gradiente.
 background = '#000000'
 gradient = 1
 gradient_count = 6
@@ -149,9 +133,8 @@ gradient_color_5 = '#9cffd0'
 gradient_color_6 = '#33aa00'
 
 [color]
-
+# Otra configuración de gradiente.
 gradient = 1
-
 gradient_color_1 = '#9cffd0'
 gradient_color_2 = '#94e2d5'
 gradient_color_3 = '#89dceb'
@@ -160,4 +143,3 @@ gradient_color_5 = '#74c7ec'
 gradient_color_6 = '#89b4fa'
 gradient_color_7 = '#99bbff'
 gradient_color_8 = '#7788ff'
-
