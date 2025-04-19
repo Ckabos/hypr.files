@@ -4,9 +4,9 @@
         "tooltip": false,
         "format": "{icon}",
         "format-icons": {
-            "notification": "<span font='14'></span><span foreground='red'><sup></sup></span>",
+            "notification": "<span font='14'></span><span foreground='brpurple'><sup></sup></span>",
             "none": "<span font='14'></span>",
-            "dnd-notification": "<span font='14'></span><span foreground='red'><sup></sup></span>",
+            "dnd-notification": "<span font='14'></span><span foreground='brpurple'><sup></sup></span>",
             "dnd-none": "<span font='14'></span>"
         },
         "return-type": "json",

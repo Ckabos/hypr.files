@@ -4,7 +4,7 @@
         "format": "{}",
         "exec": "~/.config/waybar/scripts/updates",
         "on-click": "~/.config/waybar/scripts/updates update",
-        "interval": 600,
+        "interval": 7200,
         "tooltip": true
     },
 }
