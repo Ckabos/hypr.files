@@ -1,12 +1,12 @@
 {
-     // Hyprland Workspaces
+    // Hyprland Workspaces
     "hyprland/workspaces": {
-        "active-only": false,
-        "all-outputs": true,
+        "active-only": false,  // Muestra todos los workspaces
+        "all-outputs": true,   // Incluye todos los monitores
         "disable-scroll": false,
         "on-scroll-up": "hyprctl dispatch workspace -1",
         "on-scroll-down": "hyprctl dispatch workspace +1",
-        "format": " {icon}",
+        "format": "{icon}",    // Usa iconos en lugar de números
         "format-icons": {
             "1": "一",
             "2": "二",
@@ -20,9 +20,7 @@
             "10": "〇"
         },
         "on-click": "activate",
-        "persistent-workspaces": {
-            "*": 10
-        }
-    },
-
+        "persistent-workspaces": { "*": 5}
+    }
 }
+

@@ -1,14 +1,41 @@
 #!/bin/bash
 
-# Comprobar si tun0 está activo
-if ip link show tun0 up &> /dev/null; then
-    # Si tun0 está activo, obtener la IP de tun0
-    IP=$(ip -4 addr show dev tun0 | grep inet | awk '{print $2}' | cut -d'/' -f1)
-else
-    # Si tun0 no está activo, obtener la IP de wlan0
-    IP=$(ip -4 addr show dev wlan0 | grep inet | awk '{print $2}' | cut -d'/' -f1)
+# Script: ip
+# Propósito:
+# Muestra la dirección IP actual.
+# Prioriza tun0 (VPN) si está activa; de lo contrario, muestra la IP de wlan0.
+# Modificado para soportar nombres de interfaces dinámicos y fallback general.
+
+# Función para obtener IP de una interfaz específica si existe
+get_ip() {
+    local iface="$1"
+    if ip link show "$iface" up &> /dev/null; then
+        ip -4 addr show dev "$iface" | awk '/inet / {print $2}' | cut -d'/' -f1
+    fi
+}
+
+# Intentar tun0
+IP=$(get_ip tun0)
+
+# Si tun0 no tiene IP, intentar wlan0
+if [ -z "$IP" ]; then
+    IP=$(get_ip wlan0)
 fi
 
-# Mostrar la IP
-echo "$IP"
+# Si wlan0 no tiene IP, intentar wlp2s0 (nombres comunes en laptops)
+if [ -z "$IP" ]; then
+    IP=$(get_ip wlp2s0)
+fi
+
+# Si sigue sin IP, obtener la IP local general
+if [ -z "$IP" ]; then
+    IP=$(hostname -I | awk '{print $1}')
+fi
+
+# Mostrar IP o mensaje de no conexión
+if [ -n "$IP" ]; then
+    echo "$IP"
+else
+    echo "Sin conexión"
+fi
 

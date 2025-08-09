@@ -1,24 +1,17 @@
+
 {
-        // PulseAudio
+    // PulseAudio
     "pulseaudio": {
         "scroll-step": 1,
         "format": "{icon} {volume}%",
-        "format-bluetooth": "{icon} {volume}%",
-        "format-bluetooth-muted": "<span font='18'></span>",
-        "format-muted": "<span font='18'></span>",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
+        "format-muted": "",  // icono muted universal
         "format-icons": {
-            "headphone": "<span font='18'></span>",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": " ",
             "default": [
-                "<span font='18'></span>",
-                "<span font='18'></span>",
-                "<span font='18'></span>"
+                "",  // volumen bajo
+                "",  // volumen medio
+                " "   // volumen alto
             ]
         }
-    },
+    }
 }
+

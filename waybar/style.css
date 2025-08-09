@@ -2,28 +2,18 @@
 @import "catppuccin/mocha.css";
 */
 
-/*
-* Catppuccin Mocha palette
-*/
-
+/* =============================== */
+/* Catppuccin Mocha palette */
 @define-color base #1e1e2e;
 @define-color mantle #181825;
 @define-color crust #11111b;
 @define-color workspaces #555555;
-
 @define-color text #cdd6f4;
 @define-color subtext0 #a6adc8;
 @define-color subtext1 #bac2de;
-
 @define-color surface0 rgba(22, 25, 37, 0.9);
-@define-color surface1 #45475a;
-@define-color surface2 #585b70;
-@define-color surface3 #394161;
-
 @define-color overlay0 #6c7086;
 @define-color overlay1 #7f849c;
-@define-color overlay2 #9ba3c3;
-
 @define-color blue #89b4fa;
 @define-color lavender #b4befe;
 @define-color sapphire #74c7ec;
@@ -31,6 +21,8 @@
 @define-color teal #94e2d5;
 @define-color green #a6e3a1;
 @define-color yellow #f9e2af;
+@define-color turquoise #40e0d0;
+@define-color aquamarine #7FFFD4;
 @define-color peach #fab387;
 @define-color maroon #eba0ac;
 @define-color red #f38ba8;
@@ -44,366 +36,381 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: 'Iosevka Nerd Font', monospace;
+  font-family: 'Iosevka Nerd Font', 'Symbols Nerd Font', 'JetBrainsMono Nerd Font', monospace;
   font-size: 13px;
   min-height: 0;
 }
 
-/* =============================== */
-
-
-/* =============================== */
-/* Bar Styling */
 #waybar {
   background: transparent;
   color: @text;
 }
 
 /* =============================== */
-
-
-/* =============================== */
-/* Main Modules */
-#custom-launcher,
-#workspaces,
-#window,
-#tray,
-#backlight,
-#clock,
-#battery,
-#pulseaudio,
-#network,
-#group-settings,
-#custom-ip,
-#custom-music,
-#custom-cava,
-#custom-updates,
-#custom-notifications,
-#custom-power,
-#custom-custom,
-#custom-cycle_wall {
-  background-color: @surface0;
-  color: @text;
-  border-radius: 16px;
-  padding: 0.5rem 1rem;
-  box-shadow: rgba(0, 0, 0, 0.116) 2px 2px 5px 2px;
-  margin-top: 10px;
-  /*
-    margin-bottom: 10px;
-*/
-  margin-right: 10px;
-}
-
-
-/* =============================== */
 /* Launcher Module */
 #custom-launcher {
-  color: @green;
-  padding-left: 5px; /* Reducido padding izquierdo */
+  background-color: @surface0;
+  border: 2px solid @sapphire; /* azul profundo */
+  border-radius: 12px;
+  color: @sapphire;
+  padding: 8px 14px; /* mayor padding para presencia visual */
+  margin: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 8px;
+  transition: all 0.3s ease;
+}
+#custom-launcher:hover {
+  background: linear-gradient(45deg, @sapphire, @lavender);
+  color: @base;
+  box-shadow: 0 0 10px @lavender;
 }
 
 /* =============================== */
-
 /* Workspaces */
 #workspaces {
-    padding: 1px;
+  background-color: @surface0;
+  border: 2px solid @overlay1; /* borde gris azulado suave */
+  border-radius: 12px;
+  padding: 6px;
+  margin: 4px;
+  box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 8px;
 }
 
 #workspaces * {
-  font-size: 13px; /* Reduce el tamaño del texto y los íconos a 13px */
+  font-size: 14px;
 }
 
 #workspaces button {
-  color: @mauve;
-  border-radius: 100%;
-  min-width: 20px;  /* Reduce el ancho mínimo del botón */
-  min-height: 30px; /* Reduce la altura mínima del botón */
-  padding: 5px 8px; /* Ajusta el padding para que los botones sean más estrechos */
-  margin: 3px; /* Reduce los márgenes entre los botones */
-  transition: all 0.5s cubic-bezier(.55, -0.68, .48, 1.68);
-  box-shadow: rgba(0, 0, 0, 0.288) 2px 2px 5px 2px;
+  color: @turquoise;
+  border-radius: 10px;
+  min-width: 28px;
+  min-height: 28px;
+  padding: 6px 10px;
+  margin: 3px;
+  background: rgba(148, 226, 213, 0.07);
+  font-size: 15px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+
+#workspaces button:hover {
+  background: linear-gradient(145deg, @teal, @aquamarine);
+  color: @base;
+  box-shadow: 0 0 6px @lavender;
 }
 
 #workspaces button.active {
-  color: @surface0;
-  border-radius: 1rem;
-  background: radial-gradient(circle, rgba(63,209,251,1) 0%, rgba(140,90,252,1) 100%);
-  background-size: 400% 400%;
-  animation: gradient_f 5s ease-in-out infinite;
-  transition: all 0.3s cubic-bezier(.55, -0.68, .48, 1.682);
+  color: @base;
+  background: linear-gradient(135deg, @turquoise, @sapphire);
+  box-shadow: 0 0 12px @turquoise;
+  border: 2px solid @sky; /* borde sutil para enfoque claro */
+  font-weight: bold;
 }
+
 
 #workspaces button.empty {
-  color: @workspaces;
-}
-
-#workspaces button:hover {
-  background-color: @mauve;
-}
-
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 30%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes gradient_f {
-  0% {
-    background-position: 0% 200%;
-  }
-  50% {
-    background-position: 200% 0%;
-  }
-  100% {
-    background-position: 400% 200%;
-  }
-}
-
-@keyframes gradient_f_nh {
-  0% {
-    background-position: 0% 200%;
-  }
-  100% {
-    background-position: 200% 200%;
-  }
-}
-/* =============================== */
-
-
-/* =============================== */
-/* System Monitoring Modules */
-/* Updates Module */
-#custom-updates {
-  color: @sky;
-  font-size: 15px;
-  margin-left: 10px; /* Reducido margen izquierdo */
-  margin-right: 10px;
-  padding-left: 10px; /* Reducido padding izquierdo */
-  padding-right: 10px;
-
-}
-
-#custom-ip {
-  color: @sky;
-  background: @base;
-  font-size: 16px;
-  margin-left: 15px; /* Reducido margen izquierdo */
-  margin-right: 10px;
-  padding-left: 10px; /* Reducido padding izquierdo */
-  padding-right: 10px;
-  
- 
+  color: @overlay1;
+  background: rgba(255, 255, 255, 0.02);
 }
 
 /* =============================== */
-/* Clock Module */
+/* Modules: Clock */
 #clock {
-  color: @peach;
-  margin-left: 5px;
-}
-
-/* =============================== */
-
-
-#custom-music.low {
-  background: rgb(148, 226, 213);
-  background: linear-gradient(52deg, rgba(148, 226, 213, 1) 0%, rgba(137, 220, 235, 1) 19%, rgba(116, 199, 236, 1) 43%, rgba(137, 180, 250, 1) 56%, rgba(180, 190, 254, 1) 80%, rgba(186, 187, 241, 1) 100%);
-  background-size: 300% 300%;
-  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.377);
-  animation: gradient 15s ease infinite;
+  background-color: @surface0;
+  border: 2px solid @sapphire; /* azul suave y profesional */
+  border-radius: 12px;
+  color: @sapphire; /* texto a juego con el borde */
+  padding: 6px 12px;
+  margin: 4px;
+  font-size: 16px;
   font-weight: bold;
-  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 6px;
+  transition: all 0.3s ease;
 }
 
-#custom-music.random {
-  background: rgb(148, 226, 213);
-  background: radial-gradient(circle, rgba(148, 226, 213, 1) 0%, rgba(156, 227, 191, 1) 21%, rgba(249, 226, 175, 1) 34%, rgba(158, 227, 186, 1) 35%, rgba(163, 227, 169, 1) 59%, rgba(148, 226, 213, 1) 74%, rgba(164, 227, 167, 1) 74%, rgba(166, 227, 161, 1) 100%);
-  background-size: 400% 400%;
-  animation: gradient_f 4s ease infinite;
-  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.377);
+#clock:hover {
+  background: linear-gradient(45deg, @sapphire, @lavender); /* degradado azul-violeta suave */
+  color: @base;
+  box-shadow: 0 0 10px @lavender;
+}
+
+/* =============================== */
+/* Modules: Window Title */
+#window {
+  background-color: @surface0;
+  border: 2px solid @lavender;
+  border-radius: 12px;
+  color: @lavender;
+  padding: 6px 12px;
+  margin: 4px;
+  font-size: 14px;
   font-weight: bold;
-  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 6px;
+  transition: all 0.3s ease;
 }
-
-#custom-music.critical {
-  background: rgb(235, 160, 172);
-  background: linear-gradient(52deg, rgba(235, 160, 172, 1) 0%, rgba(243, 139, 168, 1) 30%, rgba(231, 130, 132, 1) 48%, rgba(250, 179, 135, 1) 77%, rgba(249, 226, 175, 1) 100%);
-  background-size: 300% 300%;
-  animation: gradient 15s cubic-bezier(.55, -0.68, .48, 1.68) infinite;
-  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.377);
-  font-weight: bold;
-  color: #fff;
-}
-
-#custom-music.Playing {
-  background: rgb(137, 180, 250);
-  background: radial-gradient(circle, rgba(137, 180, 250, 120) 0%, rgba(142, 179, 250, 120) 6%, rgba(148, 226, 213, 1) 14%, rgba(147, 178, 250, 1) 14%, rgba(155, 176, 249, 1) 18%, rgba(245, 194, 231, 1) 28%, rgba(158, 175, 249, 1) 28%, rgba(181, 170, 248, 1) 58%, rgba(205, 214, 244, 1) 69%, rgba(186, 169, 248, 1) 69%, rgba(195, 167, 247, 1) 72%, rgba(137, 220, 235, 1) 73%, rgba(198, 167, 247, 1) 78%, rgba(203, 166, 247, 1) 100%);
-  background-size: 400% 400%;
-  animation: gradient_f 9s cubic-bezier(.72, .39, .21, 1) infinite;
-  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.377);
-  font-weight: bold;
-  color: #fff;
-}
-
-#custom-music.Paused,
-/*#custom-music.Stopped {*/
-  /*background: @surface0;*/
-/*}*/
-
-
-/* =============================== */
-/* Music/PlayerCTL Module */
-#custom-music {
-  color: @mauve;
+#window:hover {
+  background: linear-gradient(45deg, @lavender, @mauve);
+  color: @base;
+  box-shadow: 0 0 10px @mauve;
 }
 
 /* =============================== */
-
-#custom-cava {
-    font-size: 18px;
-    background: rgb(148, 226, 213);
-    background: radial-gradient(circle, rgba(148, 226, 213, 1) 0%, rgba(156, 227, 191, 1) 21%, rgba(249, 226, 175, 1) 34%, rgba(158, 227, 186, 1) 35%, rgba(163, 227, 169, 1) 59%, rgba(148, 226, 213, 1) 74%, rgba(164, 227, 167, 1) 74%, rgba(166, 227, 161, 1) 100%);
-    background-size: 400% 400%;
-    animation: gradient_f 4s ease infinite;
-    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.377);
-    font-weight: bold;
-    color: #fff;
-
+/* Modules: Updates */
+#custom-updates {
+  background-color: @surface0;
+  border: 2px solid @sky;
+  border-radius: 12px;
+  color: @sky;
+  padding: 6px 12px;
+  margin: 4px;
+  font-size: 14px;
+  box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 6px;
+  transition: all 0.3s ease;
+}
+#custom-updates:hover {
+  background: linear-gradient(45deg, @sky, @sapphire);
+  color: @base;
+  box-shadow: 0 0 10px @sapphire;
 }
 
 /* =============================== */
-/* Network Module */
-#network {
-  color: @blue;
-  border-top-right-radius: 16px;
-  border-bottom-right-radius: 16px;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-  margin-right: 10px;
-  padding-right: 15px;
-}
-
-/* =============================== */
-
-/* Módulos en conjunto */
-
-#pulseaudio, #backlight {
-  padding: 10px 10px;
-  margin-top: -5px;; /* Superpone los módulos */
-  margin-bottom: 0;
-  margin-left: 5px;
-  margin-right: 10px;
-  border-radius: 0; /* Para que solo el contenedor tenga los bordes redondeados */
-}
-
-#battery {
-    margin-top: 0;   
-    border-top-right-radius: 0;
-    border-top-left-radius: 0;
-}
-#custom-notifications{
-    color: @peach;
-    margin-top: 0;
-    margin-left: 10px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius:0;
-}
-
-#workspaces, #custom-launcher, #pulseaudio, #backlight, #battery, #tray{
-    margin-left: 10px;
-}
-
-/* Ajustes de bordes redondeados */
-#pulseaudio {
-    color: @mauve;
- }
-
-#backlight {
+/* Modules: IP */
+#custom-ip {
+  background-color: @surface0;
+  border: 2px solid @teal;
+  border-radius: 12px;
   color: @teal;
+  padding: 6px 12px;
+  margin: 4px;
+  font-size: 14px;
+  box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 6px;
+  transition: all 0.3s ease;
+}
+#custom-ip:hover {
+  background: linear-gradient(45deg, @teal, @sky);
+  color: @base;
+  box-shadow: 0 0 10px @sky;
 }
 
-#battery {
-  color: @green;
+
+/* =============================== */
+/* Modules: Music */
+#custom-music {
+  background: linear-gradient(135deg, #89dceb, #74c7ec); /* cian pastel a azul claro */
+  background-size: 400% 400%;
+  animation: music-gradient 10s ease-in-out infinite;
+  border: 2px solid #89dceb;
+  border-radius: 12px;
+  color: #1e1e2e; /* texto oscuro para contraste */
+  padding: 8px 16px;
+  margin: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease, background 0.3s ease;
 }
 
-#battery.charging {
-  color: @green;
+#custom-music:hover {
+  box-shadow: 0 6px 18px #74c7ec;
+  background: linear-gradient(135deg, #74c7ec, #89dceb); /* invierte el gradiente en hover */
 }
 
-#battery.warning:not(.charging) {
-  color: @maroon;
+@keyframes music-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-#battery.critical:not(.charging) {
-  color: @red;
-  animation-name: blink;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
 
-@keyframes blink {
-  to {
-    background: @red;
-    color: @surface1;
-  }
+/* =============================== */
+/* Modules: Cava Visualizer */
+#custom-cava {
+  background-color: @surface0;
+  border: 2px solid @teal;
+  border-radius: 12px;
+  color: @base;
+  padding: 6px 12px;
+  margin: 4px;
+  font-size: 18px;
+  font-weight: bold;
+  background: linear-gradient(135deg, @teal, @sky);
+  background-size: 300% 300%;
+  animation: cava-gradient 6s ease infinite;
+  text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 6px;
+  transition: all 0.3s ease;
+}
+#custom-cava:hover {
+  background-position: 100% 0%;
+  box-shadow: 0 0 12px @teal;
+}
+@keyframes cava-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* =============================== */
-
-/* Notifications Module */
+/* Modules: Notifications */
+/* =============================== */
 #custom-notifications {
-  color: @peach;
-  /*border-bottom-left-radius: 16px;*/
-  /*border-bottom-right-radius: 16px;*/
-  
+  background-color: @surface0;
+  border: 2px solid @mauve; /* violeta suave y elegante */
+  border-radius: 12px;
+  color: @mauve; /* texto a juego con el borde */
+  padding: 6px 12px;
+  margin: 4px;
+  font-size: 14px;
+  box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 6px;
+  transition: all 0.3s ease;
+}
+
+#custom-notifications:hover {
+  background: linear-gradient(45deg, @mauve, @lavender); /* degradado suave violeta */
+  color: @base;
+  box-shadow: 0 0 10px @lavender;
 }
 
 
 /* =============================== */
-/* Tray Module */
-#tray {
-  color: @mauve;
-  border-radius: 16px;
-  margin-bottom: 10px;
-  padding-right: 10px;
-
+/* Modules: Color Picker */
+#custom-color_picker {
+  background-color: @surface0;
+  border: 2px solid @turquoise; /* nuevo turquesa suave y elegante */
+  border-radius: 12px;
+  color: @turquoise; /* texto a juego con el borde */
+  padding: 6px 12px;
+  margin: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 6px;
+  transition: all 0.3s ease;
 }
 
-/* =============================== */
-
-
-/* =============================== */
-/* |       Custom Modules        | */
-/* =============================== */
-#custom-custom {
-  color: @peach;
-  padding-right: 1.25rem;
-  margin-right: 0px;
+#custom-color_picker:hover {
+  background: linear-gradient(45deg, @turquoise, @sapphire); /* degradado turquesa-azul profundo */
+  color: @base;
+  box-shadow: 0 0 10px @sapphire;
 }
 
-/* Wallpaper */
-#custom-cycle_wall {
-  background: linear-gradient(45deg, rgba(245, 194, 231, 1) 0%, rgba(203, 166, 247, 1) 0%, rgba(243, 139, 168, 1) 13%, rgba(235, 160, 172, 1) 26%, rgba(250, 179, 135, 1) 34%, rgba(249, 226, 175, 1) 49%, rgba(166, 227, 161, 1) 65%, rgba(148, 226, 213, 1) 77%, rgba(137, 220, 235, 1) 82%, rgba(116, 199, 236, 1) 88%, rgba(137, 180, 250, 1) 95%);
-  background-size: 500% 500%;
-  animation: gradient 7s linear infinite;
-}
 
-/* Powermenu Module */
 #custom-power {
+  background-color: @surface0;
+  border: 2px solid @green; /* borde verde suave */
+  border-radius: 12px;
+  color: @green; /* texto a juego con el borde */
+  padding: 8px 14px; /* padding ligeramente mayor para mejor proporción */
+  margin: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 8px; /* sombra más suave y expandida */
+  transition: all 0.3s ease;
+}
+
+#custom-power:hover {
+  background: linear-gradient(45deg, @green, @teal);
+  border-color: @teal; /* borde cambia con el hover */
+  color: @base;
+  box-shadow: 0 0 12px @lavender; /* sombra más intensa en hover */
+}
+
+
+#custom-cycle_wall {
+  background-color: @surface0;
+  border: 2px solid @mauve;
+  border-radius: 12px;
   color: @mauve;
-  /* border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  padding-left: 8px; */
-  padding-right: 1.20rem;
+  padding: 6px 12px;
+  margin: 4px;
+  font-size: 20px;
+  font-family: 'Iosevka Nerd Font', monospace;
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 6px;
+  transition: all 0.3s ease;
+}
+
+#custom-cycle_wall:hover {
+  background: linear-gradient(45deg, @mauve, @lavender);
+  color: @base;
+  box-shadow: 0 0 10px @lavender;
+}
+
+#pulseaudio {
+  background-color: @surface0;
+  border: 2px solid @sapphire; /* azul profundo suave */
+  border-radius: 12px;
+  color: @sapphire; /* texto a juego con el borde */
+  padding: 6px 12px;
+  margin: 4px;
+  font-size: 14px;
+  box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 6px;
+  transition: all 0.3s ease;
+}
+
+#pulseaudio:hover {
+  background: linear-gradient(45deg, @sapphire, @lavender);
+  color: @base;
+  box-shadow: 0 0 10px @lavender;
+}
+
+#tray {
+  background-color: @surface0;
+  border: 2px solid @aquamarine; /* nuevo azul verdoso suave */
+  border-radius: 12px;
+  color: @aquamarine; /* texto a juego con el borde */
+  padding: 6px 12px;
+  margin: 4px;
+  font-size: 16px;
+  box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 6px;
+  transition: all 0.3s ease;
+}
+
+#tray:hover {
+  background: linear-gradient(45deg, @aquamarine, @teal); /* degradado aquamarine-teal */
+  color: @base;
+  box-shadow: 0 0 10px @teal;
+}
+
+#custom-window_monitor {
+  background-color: @surface0;
+  border: 2px solid @sapphire;
+  border-radius: 12px;
+  color: @sapphire;
+  padding: 6px 12px;
+  margin: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 6px;
+  transition: all 0.3s ease;
+}
+
+#custom-window_monitor:hover {
+  background: linear-gradient(45deg, @sapphire, @lavender);
+  color: @base;
+  box-shadow: 0 0 10px @lavender;
 }
 
 /* =============================== */
+/* Modules: CPU */
+#cpu {
+  background-color: @surface0;
+  border: 2px solid @sky; /* azul cian pastel */
+  border-radius: 12px;
+  color: @sky; /* texto a juego con el borde */
+  padding: 6px 12px;
+  margin: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 6px;
+  transition: all 0.3s ease;
+}
+
+#cpu:hover {
+  background: linear-gradient(45deg, @sky, @sapphire); /* degradado cian-azul suave */
+  color: @base;
+  box-shadow: 0 0 10px @sapphire;
+}
+

@@ -1,41 +1,44 @@
 #!/usr/bin/env bash
 
-# Original script by @speltriao on GitHub
-# https://github.com/speltriao/Pacman-Update-for-GNOME-Shell
+# Script: updates
+# Verifica actualizaciones en Arch Linux y muestra icono + número directamente en text
 
-# If the operating system is not Arch Linux, exit the script successfully
+# Verificar si es Arch Linux
 if [ ! -f /etc/arch-release ]; then
+    echo '{"text": "  0"}'
     exit 0
 fi
 
-# Calculate updates for each service
+# Verificar comandos necesarios
+if ! command -v yay &>/dev/null; then
+    echo '{"text": "  yay no instalado"}'
+    exit 1
+fi
+
+if ! command -v checkupdates &>/dev/null; then
+    echo '{"text": "  checkupdates no instalado"}'
+    exit 1
+fi
+
+# Obtener actualizaciones
 AUR=$(yay -Qua | wc -l)
 OFFICIAL=$(checkupdates | wc -l)
+COUNT=$((OFFICIAL + AUR))
 
-# Case/switch for each service updates
-case $1 in
-    aur) echo " $AUR";;
-    official) echo " $OFFICIAL";;
-esac
+# Generar salida con icono + número directamente en text
+if [ "$COUNT" -eq 0 ]; then
+    echo '{"text": "  0"}'
+else
+    echo "{\"text\": \"  $COUNT\"}"
+fi
 
-# If the parameter is "update", update all services
+# Ejecutar actualización si se pasa 'update' como argumento
 if [ "$1" = "update" ]; then
-    kitty --start-as=fullscreen --title all_is_kitty --hold --detach sh -c 'yay -Syu'
-fi
-
-# If there aren't any parameters, return the total number of updates
-if [ "$1" = "" ]; then
-    # Calculate total number of updates
-    COUNT=$((OFFICIAL+AUR))
-    # If there are updates, the script will output the following:   Updates
-    # If there are no updates, the script will output nothing.
-
-    if [[ "$COUNT" = "0" ]]
-    then
-        echo ""
+    if command -v kitty &>/dev/null; then
+        setsid kitty --start-as=fullscreen --title all_is_kitty --hold sh -c 'yay -Syu' & disown
     else
-        # This Update symbol is RTL. So &#x202d; is left-to-right override.
-        echo " $COUNT"
+        echo '{"text": "  Kitty no instalado"}'
+        exit 1
     fi
-    exit 0
 fi
+

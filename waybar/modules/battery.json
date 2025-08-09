@@ -1,5 +1,4 @@
 {
-        // Battery
     "battery": {
         "states": {
             "good": 100,
@@ -18,6 +17,8 @@
             "<span font='18'> </span>",
             "<span font='18'> </span>"
         ],
+        "tooltip": true,
         "interval": 2
-    },
+    }
 }
+

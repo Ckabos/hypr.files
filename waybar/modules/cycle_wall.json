@@ -1,11 +1,11 @@
 {
-        // Cycle Wall
+    // Cycle Wall as wallpaper changer module
     "custom/cycle_wall": {
-        "format": {},
-        "exec": "~/.config/waybar/scripts/tools/expand wall",
+        "format": "🖌️",
+        "exec": "echo '{\"text\":\"\",\"tooltip\":\"Cambiar wallpaper\"}'",
         "return-type": "json",
-        "on-click": "~/.config/waybar/scripts/tools/expand cycle",
-        "on-click-right": "~/.config/waybar/scripts/tools/expand cycler"
-    },
-
+        "on-click": "~/.config/waybar/scripts/wall", // cambia wallpaper con click
+        "on-click-right": "~/.config/waybar/scripts/wall random" // click derecho acción alternativa si deseas
+    }
 }
+

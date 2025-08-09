@@ -1,14 +1,34 @@
 #!/usr/bin/env bash
 
-# get the value
+# Script: color-picker
+# Propósito:
+# Seleccionar un color en pantalla, copiarlo al portapapeles y mostrar notificación con preview.
+
+# ==============================
+# Verificar dependencias
+for cmd in hyprpicker wl-paste magick notify-send; do
+    if ! command -v $cmd &>/dev/null; then
+        echo "Error: $cmd no está instalado."
+        exit 1
+    fi
+done
+
+# ==============================
+# Obtener color usando hyprpicker
 output=$(hyprpicker -n -a -f hex)
 
-# check if color ends with hexadecimal code
-if [[ $output =~ ^.*#([A-Fa-f0-9]{6})$ ]]; then
-    color=$(wl-paste)
-    image=/tmp/color.png
-    # generate preview
-    magick -size 48x48 xc:"$color" ${image}
-    # notify the color
-    notify-send -u low -i ${image} "$color" "Copied to clipboard."
+# Validar formato de color hexadecimal
+if [[ $output =~ ^#([A-Fa-f0-9]{6})$ ]]; then
+    color=$output
+    image="/tmp/color.png"
+
+    # Generar imagen preview (48x48 px)
+    magick -size 48x48 xc:"$color" "$image"
+
+    # Notificar al usuario
+    notify-send -u low -i "$image" "$color" "Color copiado al portapapeles."
+else
+    notify-send -u low "Color Picker" "No se seleccionó un color válido."
+    exit 1
 fi
+

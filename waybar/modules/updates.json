@@ -1,10 +1,11 @@
 {
-     // Updates
     "custom/updates": {
-        "format": "{}",
+        "format": "{text}",
         "exec": "~/.config/waybar/scripts/updates",
         "on-click": "~/.config/waybar/scripts/updates update",
         "interval": 7200,
-        "tooltip": true
-    },
+        "tooltip": true,
+        "return-type": "json"
+    }
 }
+

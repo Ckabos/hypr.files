@@ -1,12 +1,12 @@
 {
-        // Notifications
+    // Notifications
     "custom/notifications": {
         "tooltip": false,
         "format": "{icon}",
         "format-icons": {
-            "notification": "<span font='14'></span><span foreground='brpurple'><sup></sup></span>",
+            "notification": "<span font='14'></span><span foreground='#cba6f7'><sup></sup></span>",
             "none": "<span font='14'></span>",
-            "dnd-notification": "<span font='14'></span><span foreground='brpurple'><sup></sup></span>",
+            "dnd-notification": "<span font='14'></span><span foreground='#cba6f7'><sup></sup></span>",
             "dnd-none": "<span font='14'></span>"
         },
         "return-type": "json",
@@ -15,5 +15,5 @@
         "on-click": "sleep 0.15 && swaync-client -t -sw",
         "on-click-right": "sleep 0.15 && swaync-client -d -sw",
         "escape": true
-    },
+    }
 }

@@ -1,0 +1,10 @@
+{
+    "custom/color_picker": {
+        "format": "🎨",
+        "tooltip": "Seleccionar color",
+        "on-click": "~/.config/waybar/scripts/color-picker",
+        "interval": 0,
+        "class": "color-picker"
+    }
+}
+

@@ -1,19 +1,26 @@
 #!/usr/bin/env bash
 
-#----- Optimized bars animation without much CPU usage increase --------
-bar="▁▂▃▄▅▆▇█"
-dict="s/;//g"
+# Script: cava
+# Propósito:
+# Visualizador de audio para Waybar utilizando cava con salida raw ascii y conversión de niveles a caracteres.
 
-# Calculate the length of the bar outside the loop
+# ==============================
+# Configuración de caracteres de barra
+bar="▁▂▃▄▅▆▇█"
+dict="s/;//g"  # Inicializa el diccionario de sustitución
+
+# Calcular longitud de la barra
 bar_length=${#bar}
 
-# Create dictionary to replace char with bar
+# Crear diccionario sed para reemplazar números (0-7) con caracteres
 for ((i = 0; i < bar_length; i++)); do
     dict+=";s/$i/${bar:$i:1}/g"
 done
 
-# Create cava config
+# ==============================
+# Generar archivo temporal de configuración de cava
 config_file="/tmp/bar_cava_config"
+
 cat >"$config_file" <<EOF
 [general]
 bars = 10
@@ -29,8 +36,11 @@ data_format = ascii
 ascii_max_range = 7
 EOF
 
-# Kill cava if it's already running
+# ==============================
+# Finalizar instancias previas de cava usando este config
 pkill -f "cava -p $config_file"
 
-# Read stdout from cava and perform substitution in a single sed command
+# ==============================
+# Ejecutar cava y reemplazar números con caracteres de barra en tiempo real
 cava -p "$config_file" | sed -u "$dict"
+

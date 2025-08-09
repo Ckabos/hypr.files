@@ -14,28 +14,32 @@
         "~/.config/waybar/modules/backlight.json",
         "~/.config/waybar/modules/cycle_wall.json",
         "~/.config/waybar/modules/power.json",
-        "~/.config/waybar/modules/custom.json",
         "~/.config/waybar/modules/tray.json",
         "~/.config/waybar/modules/battery.json",
         "~/.config/waybar/modules/pulseaudio.json",
         "~/.config/waybar/modules/notifications.json",
         "~/.config/waybar/modules/updates.json",
         "~/.config/waybar/modules/settings.json",
-        
+        "~/.config/waybar/modules/window_monitor.json",
+        "~/.config/waybar/modules/cava.json",
+        "~/.config/waybar/modules/cpu.json",
     ],
 
      "modules-left": [
         "custom/launcher",
         "hyprland/workspaces",
+        "cpu",
+        "custom/window_monitor",
         
     ],
 
     "modules-center": [
+    "custom/cava",
     ],
 
     "modules-right": [
         "group/settings",
-            "tray",
+        "tray",
 
     ],
     },{
@@ -59,13 +63,13 @@
         "~/.config/waybar/modules/backlight.json",
         "~/.config/waybar/modules/cycle_wall.json",
         "~/.config/waybar/modules/power.json",
-        "~/.config/waybar/modules/custom.json",
         "~/.config/waybar/modules/clock.json",
         "~/.config/waybar/modules/window.json",
         "~/.config/waybar/modules/music.json",
         "~/.config/waybar/modules/updates.json",
         "~/.config/waybar/modules/cava.json",
         "~/.config/waybar/modules/ip.json",
+        "~/.config/waybar/modules/color-picker.json",
     ],
 
     "modules-left": [
@@ -81,9 +85,10 @@
 
     "modules-right": [
         "custom/cycle_wall",
+        "custom/color_picker",
         "custom/custom",
-        "custom/power",
         "clock",
+        "custom/power",
     ],
 }]
 

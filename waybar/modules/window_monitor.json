@@ -1,0 +1,8 @@
+{
+    "custom/window_monitor": {
+        "format": "",  // Usa un icono que te guste (este es un monitor)
+        "tooltip": "Mover ventana al siguiente monitor",
+        "on-click": "~/.config/waybar/scripts/window_monitor.sh"
+    }
+}
+

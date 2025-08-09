@@ -1,11 +1,10 @@
 { 
-    // Music
     "custom/music": {
         "format": "{icon}{0}",
         "format-icons": {
             "Playing": "  ",
             "Paused": " ",
-            "Stopped": "&#x202d;ﭥ "
+            "Stopped": "ﭥ "
         },
         "escape": true,
         "tooltip": true,
@@ -15,5 +14,6 @@
         "on-middle-click": "playerctl previous",
         "on-click-right": "playerctl next",
         "max-length": 40
-    },
+    }
 }
+
