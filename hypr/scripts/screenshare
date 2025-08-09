@@ -1,8 +1,25 @@
 #!/usr/bin/env bash
+
+# Script: screenshare
+# Propósito:
+# Reinicia xdg-desktop-portal y sus backends específicos para Hyprland y wlroots.
+# Esto soluciona problemas comunes de compartición de pantalla en Wayland.
+
+# Espera 1 segundo antes de iniciar el reinicio.
 sleep 1
-killall -e xdg-desktop-portal-hyprland
-killall -e xdg-desktop-portal-wlr
-killall xdg-desktop-portal
+
+# Mata los procesos de xdg-desktop-portal específicos si están corriendo.
+killall -e xdg-desktop-portal-hyprland || echo "xdg-desktop-portal-hyprland no estaba en ejecución."
+killall -e xdg-desktop-portal-wlr || echo "xdg-desktop-portal-wlr no estaba en ejecución."
+killall xdg-desktop-portal || echo "xdg-desktop-portal no estaba en ejecución."
+
+# Inicia xdg-desktop-portal-hyprland en segundo plano.
+# Asegúrate de que la ruta es correcta en tu sistema (verifica con 'which xdg-desktop-portal-hyprland').
 /usr/lib/xdg-desktop-portal-hyprland &
+
+# Espera 2 segundos para permitir la inicialización de xdg-desktop-portal-hyprland.
 sleep 2
+
+# Inicia xdg-desktop-portal en segundo plano.
 /usr/lib/xdg-desktop-portal &
+
