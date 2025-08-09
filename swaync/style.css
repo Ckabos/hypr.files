@@ -1,3 +1,160 @@
-@import '../../.cache/wal/colors-waybar.css';
-@import 'themes/nova-dark/notifications.css';
-@import 'themes/nova-dark/central_control.css';
+body, * {
+  font-family: "JetBrains Mono Nerd Font 10", monospace;
+  color: #d7dae0;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.control-center {
+  padding: 24px 48px;
+  margin: 24px 12px;
+  border-radius: 22px;
+  background-color: rgba(30, 30, 40, 0.95);
+  border: 1.5px solid rgba(100, 110, 130, 0.85);
+}
+
+.notification-background {
+  margin: 16px;
+  padding: 14px 18px;
+  border-radius: 18px;
+  background-color: rgba(50, 50, 65, 0.5);
+  border: 1.5px solid rgba(100, 110, 130, 0.6);
+}
+
+.notification-action,
+.close-button {
+  padding: 8px 10px;
+  font-weight: 700;
+  border-radius: 12px;
+  background-color: rgba(120, 140, 180, 0.3);
+  color: #1e1e2e;
+  border: none;
+  opacity: 0.3;
+  transition: opacity 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.notification-action:hover,
+.close-button:hover {
+  background-color: rgba(140, 160, 210, 0.7);
+  color: #f0f0f3;
+  opacity: 1;
+  box-shadow: 0 0 8px rgba(140, 160, 210, 0.6);
+}
+
+.close-button {
+  padding: 4px 10px;
+  margin-left: 20px;  /* margen fijo para separarlo a la derecha */
+  margin-top: 8px;
+  /* eliminar display */
+  opacity: 0.3;
+  transition: opacity 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+.widget-title > button {
+  background-color: #33aadd;
+  color: #fff;
+  font-weight: 800;
+  border-radius: 14px;
+  padding: 0px 20px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 8px rgba(10, 100, 150, 0.7);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  /* cursor: pointer; */
+}
+
+
+.widget-title > button:hover {
+  background-color: #33dddf;     /* rojo más claro */
+  box-shadow: 0 0 12px rgba(10, 100, 200, 0.9);
+  color: #f5f5f5;
+}
+
+
+.widget-mpris {
+  background-color: rgba(50, 50, 65, 0.5);
+  border-radius: 20px;
+  padding: 20px 20px;
+  margin: 15px 0;
+  border: 1.5px solid rgba(100, 110, 130, 0.85);
+  color: #d7dae0;
+  font-size: 10px;
+}
+
+.widget-mpris-album-art {
+  border-radius: 16px;
+  margin: 10px;
+
+}
+
+.widget-mpris-title {
+  font-weight: 800;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+  margin-top: 0;
+  margin-bottom: 6px;
+}
+
+.widget-mpris-subtitle {
+  font-weight: 600;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.85);
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
+  margin-top: 0;
+}
+
+.buttons-grid {
+  background-color: rgba(20, 20, 30, 0.5);
+  padding: 16px 24px;
+  border-radius: 22px;
+  margin-top: 12px;
+}
+
+.buttons-grid button {
+  background-color: rgba(50, 50, 70, 0.6);
+  color: #f0f0f3;
+  border-radius: 16px;
+  padding: 14px 22px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  border: none;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+  margin-right: 12px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.buttons-grid button:last-child {
+  margin-right: 0;
+}
+
+.buttons-grid button:hover {
+  background-color: rgba(70, 70, 100, 1);
+  box-shadow: 0 0 15px rgba(70, 70, 100, 0.9);
+  color: #fff;
+}
+
+
+.widget-dnd > switch {
+  background-color: rgba(120, 140, 190, 0.7);
+  border-radius: 24px;
+  margin: 8px;
+}
+
+.widget-dnd > switch slider {
+  background-color: #d7dae0;
+  border-radius: 50%;
+}
+
+.widget-dnd > switch:checked {
+  background-color: #7a90d2;
+}
+
+.widget-dnd > switch:checked slider {
+  /* sin left */
+}
