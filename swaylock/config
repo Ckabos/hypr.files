@@ -1,6 +1,7 @@
 # General settings
 ignore-empty-password
 daemonize
+fade-in=0.25
 # Appearance settings
 indicator
 clock

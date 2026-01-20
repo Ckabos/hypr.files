@@ -37,7 +37,7 @@
   border: none;
   border-radius: 0;
   font-family: 'Iosevka Nerd Font', 'Symbols Nerd Font', 'JetBrainsMono Nerd Font', monospace;
-  font-size: 13px;
+  font-size: 12px;
   min-height: 0;
 }
 
@@ -55,7 +55,7 @@
   color: @sapphire;
   padding: 8px 14px; /* mayor padding para presencia visual */
   margin: 4px;
-  font-size: 16px;
+  font-size: 10px;
   font-weight: bold;
   box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 8px;
   transition: all 0.3s ease;
@@ -78,7 +78,7 @@
 }
 
 #workspaces * {
-  font-size: 14px;
+  font-size: 15px;
 }
 
 #workspaces button {
@@ -89,7 +89,7 @@
   padding: 6px 10px;
   margin: 3px;
   background: rgba(148, 226, 213, 0.07);
-  font-size: 15px;
+  font-size: 10px;
   font-weight: bold;
   transition: all 0.3s ease;
 }
@@ -124,7 +124,7 @@
   color: @sapphire; /* texto a juego con el borde */
   padding: 6px 12px;
   margin: 4px;
-  font-size: 16px;
+  font-size: 10px;
   font-weight: bold;
   box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 6px;
   transition: all 0.3s ease;
@@ -145,7 +145,7 @@
   color: @lavender;
   padding: 6px 12px;
   margin: 4px;
-  font-size: 14px;
+  font-size: 10px;
   font-weight: bold;
   box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 6px;
   transition: all 0.3s ease;
@@ -165,7 +165,7 @@
   color: @sky;
   padding: 6px 12px;
   margin: 4px;
-  font-size: 14px;
+  font-size: 10px;
   box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 6px;
   transition: all 0.3s ease;
 }
@@ -184,7 +184,7 @@
   color: @teal;
   padding: 6px 12px;
   margin: 4px;
-  font-size: 14px;
+  font-size: 15px;
   box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 6px;
   transition: all 0.3s ease;
 }
@@ -234,7 +234,7 @@
   color: @base;
   padding: 6px 12px;
   margin: 4px;
-  font-size: 18px;
+  font-size: 10px;
   font-weight: bold;
   background: linear-gradient(135deg, @teal, @sky);
   background-size: 300% 300%;
@@ -263,7 +263,7 @@
   color: @mauve; /* texto a juego con el borde */
   padding: 6px 12px;
   margin: 4px;
-  font-size: 14px;
+  font-size: 10px;
   box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 6px;
   transition: all 0.3s ease;
 }
@@ -284,7 +284,7 @@
   color: @turquoise; /* texto a juego con el borde */
   padding: 6px 12px;
   margin: 4px;
-  font-size: 14px;
+  font-size: 10px;
   font-weight: bold;
   box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 6px;
   transition: all 0.3s ease;
@@ -304,7 +304,7 @@
   color: @green; /* texto a juego con el borde */
   padding: 8px 14px; /* padding ligeramente mayor para mejor proporción */
   margin: 4px;
-  font-size: 16px;
+  font-size: 10px;
   font-weight: bold;
   box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 8px; /* sombra más suave y expandida */
   transition: all 0.3s ease;
@@ -325,7 +325,7 @@
   color: @mauve;
   padding: 6px 12px;
   margin: 4px;
-  font-size: 20px;
+  font-size: 15px;
   font-family: 'Iosevka Nerd Font', monospace;
   font-weight: bold;
   box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 6px;
@@ -345,7 +345,7 @@
   color: @sapphire; /* texto a juego con el borde */
   padding: 6px 12px;
   margin: 4px;
-  font-size: 14px;
+  font-size: 12px;
   box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 6px;
   transition: all 0.3s ease;
 }
@@ -363,7 +363,7 @@
   color: @aquamarine; /* texto a juego con el borde */
   padding: 6px 12px;
   margin: 4px;
-  font-size: 16px;
+  font-size: 10px;
   box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 6px;
   transition: all 0.3s ease;
 }
@@ -381,7 +381,7 @@
   color: @sapphire;
   padding: 6px 12px;
   margin: 4px;
-  font-size: 16px;
+  font-size: 10px;
   font-weight: bold;
   box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 6px;
   transition: all 0.3s ease;
@@ -402,7 +402,7 @@
   color: @sky; /* texto a juego con el borde */
   padding: 6px 12px;
   margin: 4px;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
   box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 6px;
   transition: all 0.3s ease;
@@ -414,3 +414,20 @@
   box-shadow: 0 0 10px @sapphire;
 }
 
+#backlight{
+background-color: @surface0;
+border: 2px solid @teal;
+border-radius: 12px;
+color: @teal;
+padding: 6px 12px;
+margin: 4px;
+font-size: 10px;
+box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 6px;
+transition: all 0.3s ease;
+}
+
+#backlight:hover {
+  background: linear-gradient(45deg, @sky, @sapphire); /* degradado cian-azul suave */
+  color: @base;
+  box-shadow: 0 0 10px @sapphire;
+}

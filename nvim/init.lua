@@ -10,7 +10,27 @@ packer.startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- 🔹 Interfaz y Estética
-  use 'ghifarit53/tokyonight-vim'       -- Tema Tokyonight
+  use 'folke/tokyonight.nvim'
+-- Configura el tema TokyoNight con transparencia
+require('tokyonight').setup({
+  style = "night",          -- Puedes cambiar esto a 'day' si prefieres el tema claro
+  transparent = true,       -- Activa la transparencia
+  terminal_colors = true,   -- Si quieres usar los colores de TokyoNight en el terminal integrado
+})
+
+-- Aplica el esquema de colores
+vim.cmd[[colorscheme tokyonight]]
+
+-- Hacer fondo transparente para elementos adicionales
+vim.cmd [[
+  highlight Normal guibg=NONE ctermbg=NONE
+  highlight NormalNC guibg=NONE ctermbg=NONE
+  highlight Pmenu guibg=NONE
+  highlight SignColumn guibg=NONE
+  highlight VertSplit guibg=NONE
+]]
+
+
   use 'vim-airline/vim-airline'         -- Barra de estado mejorada
   use 'vim-airline/vim-airline-themes'  -- Temas para Airline
   use 'ryanoasis/vim-devicons'          -- Iconos para archivos
@@ -19,10 +39,12 @@ packer.startup(function(use)
 
   -- 🔹 Navegación y Gestión de Archivos
 use {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
-    }
-
+  'nvim-treesitter/nvim-treesitter',
+  run = ':TSUpdate',
+  requires = {
+    'nvim-treesitter/nvim-treesitter-textobjects'
+  }
+}
   -- 🔹 Funcionalidad Extra
 
   use 'scrooloose/nerdcommenter'        -- Comentar líneas fácilmente
@@ -86,7 +108,7 @@ vim.g['airline#extensions#tabline#enabled'] = 1
 --    Configuración de DAP (Depuración)
 -- ===============================
 local dap_python = require('dap-python')
-dap_python.setup('python') -- Asegúrate de que `debugpy` está instalado
+dap_python.setup('python') -- Asegúrate de que debugpy está instalado
 
 require('dap').configurations.python = {
     {
@@ -101,7 +123,6 @@ require('dap').configurations.python = {
 --    Mapeos de Teclas
 -- ===============================
 vim.g.mapleader = " " -- Tecla líder
-
 vim.api.nvim_set_keymap('n', '<leader>q', ':bd<CR>', { noremap = true, silent = true })  -- Cerrar buffer
 vim.api.nvim_set_keymap('n', '<Tab>', ':bn<CR>', { noremap = true, silent = true })  -- Siguiente buffer
 vim.api.nvim_set_keymap('n', '<S-Tab>', ':bp<CR>', { noremap = true, silent = true }) -- Buffer anterior
@@ -126,4 +147,11 @@ vim.o.fileencoding = 'utf-8'
 vim.o.swapfile = false
 vim.o.backup = false
 vim.o.writebackup = false
+
+-- Desactivar algunas caracteristicas
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
+
+
+vim.g.python3_host_prog = "/usr/bin/pynvim-python"
 

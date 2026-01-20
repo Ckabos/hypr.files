@@ -19,12 +19,12 @@ IP=$(get_ip tun0)
 
 # Si tun0 no tiene IP, intentar wlan0
 if [ -z "$IP" ]; then
-    IP=$(get_ip wlan0)
+    IP=$(get_ip wlp4s0)
 fi
 
-# Si wlan0 no tiene IP, intentar wlp2s0 (nombres comunes en laptops)
+# Si wlan0 no tiene IP, intentar wlp5s0 (nombres comunes en laptops)
 if [ -z "$IP" ]; then
-    IP=$(get_ip wlp2s0)
+    IP=$(get_ip wlp5s0)
 fi
 
 # Si sigue sin IP, obtener la IP local general
